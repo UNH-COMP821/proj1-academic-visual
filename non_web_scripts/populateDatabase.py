@@ -5,7 +5,8 @@ from tkinter import *
 class HandleCommands():
     def DeleteTableCalled(self):
         LogUtil.Write("Delete Called")
-        DynamoDbHelpers.DeleteTable("Movies")
+        DynamoDbHelpers.DeleteTable("project1.school")
+        DynamoDbHelpers.DeleteTable("project1.school.transfer.map")
 
     def PrintAllTableNamesCalled(self):
         LogUtil.Write("PrintAllTableNames Called")
@@ -16,27 +17,41 @@ class HandleCommands():
         
         keySchema=[
                 {
-                    'AttributeName': 'year',
+                    'AttributeName': 'id',
+                    'KeyType': 'HASH'  #Partition key
+                }
+            ]
+        attributeDefinitions=[
+                {
+                    'AttributeName': 'id',
+                    'AttributeType': 'N' #Sort key
+                }
+
+            ]
+        DynamoDbHelpers.CreateTable('project1.school',keySchema,attributeDefinitions)
+
+        
+        keySchema=[
+                {
+                    'AttributeName': 'school_id',
                     'KeyType': 'HASH'  #Partition key
                 },
                 {
-                    'AttributeName': 'title',
+                    'AttributeName': 'course_id',
                     'KeyType': 'RANGE'  #Sort key
                 }
             ]
         attributeDefinitions=[
                 {
-                    'AttributeName': 'year',
+                    'AttributeName': 'school_id',
                     'AttributeType': 'N'
                 },
                 {
-                    'AttributeName': 'title',
+                    'AttributeName': 'course_id',
                     'AttributeType': 'S'
-                },
-
+                }
             ]
-        DynamoDbHelpers.CreateTable('Movies',keySchema,attributeDefinitions)
-
+        DynamoDbHelpers.CreateTable('project1.school.transfer.map',keySchema,attributeDefinitions)
 
 def createTables():
     LogUtil.Write("CreateTables: started")

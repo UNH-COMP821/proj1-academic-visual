@@ -1,0 +1,47 @@
+digraph G {
+
+       transfer [label="Transfer"  URL= "https://www.nhtransfer.org/sites/nhtransfer.org/files/media/nhtransferapplication.pdf" color=lightgreen fillcolor=lightyellow style=filled]
+  compare_tuition_cost [label="Compare Tuition Cost" URL="https://manchester.unh.edu/costs" color=lightgreen fillcolor=lightyellow style=filled]
+
+
+    list_of_unh_programs [label="UNH IT Program" URL= "https://manchester.unh.edu/academics/degree-programs/information-technology" color=lightgreen fillcolor=lightyellow style=filled]
+    nashua [label="Nashua Community College" URL="/transfer_college?college=nashua" color=lightgreen fillcolor=lightyellow    style=filled]
+apply [label=Apply URL="/index.html" color=lightgreen fillcolor=lightyellow style=filled]
+	nashua_software_development [label="Nashua Software Develoment"]
+	nashua_cyber_security [label="Nashua Cyber Security"]
+	nashua_web [label="Nashua Web Development"]
+	
+	nashua -> nashua_software_development
+	nashua -> nashua_cyber_security
+             nashua -> nashua_web
+             nashua_software_development -> list_of_unh_programs
+             nashua_cyber_security -> list_of_unh_programs
+             nashua_web -> list_of_unh_programs
+	list_of_unh_programs -> transfer
+	list_of_unh_programs -> compare_tuition_cost
+	 transfer -> apply 
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

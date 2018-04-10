@@ -1,19 +1,20 @@
-import os, time
-import boto3
-from botocore.exceptions import ClientError
+from populateDatabaseUtils import LogUtil
+from populateDatabaseUtils import DynamoDbHelpers
+from tkinter import *
 
+class HandleCommands():
+    def DeleteTableCalled(self):
+        LogUtil.Write("Delete Called")
+        DynamoDbHelpers.DeleteTable("Movies")
 
-ACCESS_ID="akey"
-SECRET_KEY="skey"
+    def PrintAllTableNamesCalled(self):
+        LogUtil.Write("PrintAllTableNames Called")
+        DynamoDbHelpers.PrintAllTables()
 
-def createTables():
-    
-    dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000", aws_access_key_id=ACCESS_ID, aws_secret_access_key=SECRET_KEY)
-
-    try:
-        table = dynamodb.create_table(
-            TableName='Movies',
-            KeySchema=[
+    def CreateTableCalled(self):
+        LogUtil.Write("Create Called")
+        
+        keySchema=[
                 {
                     'AttributeName': 'year',
                     'KeyType': 'HASH'  #Partition key
@@ -22,8 +23,8 @@ def createTables():
                     'AttributeName': 'title',
                     'KeyType': 'RANGE'  #Sort key
                 }
-            ],
-            AttributeDefinitions=[
+            ]
+        attributeDefinitions=[
                 {
                     'AttributeName': 'year',
                     'AttributeType': 'N'
@@ -33,22 +34,80 @@ def createTables():
                     'AttributeType': 'S'
                 },
 
-            ],
-            ProvisionedThroughput={
-                'ReadCapacityUnits': 10,
-                'WriteCapacityUnits': 10
-            }
-        )
-        print("Table status:", table.table_status)
-    except ClientError as ce:
-        if ce.response['Error']['Code'] == 'ResourceNotFoundException':
-            print ("Table " + 'TABLE_NAME' + " does not exist. Create the table first and try again.")
-        else:
-            print("Unknown exception occurred while querying for the " + 'TABLE_NAME' + " table. Printing full error:")
-            print(ce.response)
-
-    print("End","")
+            ]
+        DynamoDbHelpers.CreateTable('Movies',keySchema,attributeDefinitions)
 
 
+def createTables():
+    LogUtil.Write("CreateTables: started")
 
-createTables()
+def main():
+    LogUtil.Write("Main: started")
+    # print command line argument
+    hndlCommands = HandleCommands()
+
+    if len(sys.argv) > 1:
+        for arg in sys.argv[1:]:
+            LogUtil.Write(arg)
+    else:
+        root = Tk()
+        app = Application(master=root)
+        app.setCallBack(hndlCommands)
+        app.mainloop()
+        root.destroy()
+
+    LogUtil.Write("Main: end")
+
+class Application(Frame):
+    hndlCommands = HandleCommands()
+
+    def setCallBack(self, mainHandleCommands):
+        global hndlCommands
+        hndlCommands = mainHandleCommands
+
+    def createTablesBtn(self):
+        print("createTablesBtn called")
+        hndlCommands.CreateTableCalled()
+
+    def printAllTableNamesBtn(self):
+        print("printAllTableNamesBtn called")
+        hndlCommands.PrintAllTableNamesCalled()
+
+    def deleteTablesBtn(self):
+        print("deleteTablesBtn called")
+        hndlCommands.DeleteTableCalled()
+
+    def createWidgets(self):
+        self.QUIT = Button(self)
+        self.QUIT["text"] = "QUIT"
+        self.QUIT["fg"]   = "red"
+        self.QUIT["compound"] = "center"
+        self.QUIT["command"] =  self.quit
+
+        self.QUIT.pack({"side": "bottom"})
+
+        self.create_table = Button(self)
+        self.create_table["text"] = "Create Tables"
+        self.create_table["compound"] = "center"
+        self.create_table["command"] = self.createTablesBtn
+        self.create_table.pack({"side": "top"})
+        
+        self.view_table = Button(self)
+        self.view_table["text"] = "Print All Table Names"
+        self.view_table["compound"] = "center"
+        self.view_table["command"] = self.printAllTableNamesBtn
+        self.view_table.pack({"side": "top"})
+        
+        self.delete_table = Button(self)
+        self.delete_table["text"] = "Delete Tables"
+        self.delete_table["compound"] = "center"
+        self.delete_table["command"] = self.deleteTablesBtn
+        self.delete_table.pack({"side": "top"})
+
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+
+if __name__ == "__main__":
+    main()

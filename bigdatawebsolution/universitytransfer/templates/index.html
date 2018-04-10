@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Welcome Home {% endblock %}</title>
+</head>
+<body>
+  {% block pagecontent %}
+  <p>" This page will redirect you to UNH MS IT program transfer process.
+    The transfer process will depend upon your present college, degree program and course credits completed."
+  </p>
+  {% include 'partials/nav-bar.html' %} <!--Add this-->
+
+  {% endblock %}
+</body>
+</html>

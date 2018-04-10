@@ -1,42 +1,53 @@
-import boto3
-import json
-import decimal
-from boto3.dynamodb.conditions import Key, Attr
-
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
-from django.http import HttpResponse
+class HomePageView(TemplateView):
+    template_name = "index.html"
 
-# Helper class to convert a DynamoDB item to JSON.
-# class DecimalEncoder(json.JSONEncoder):
-#     def default(self, o):
-#         if isinstance(o, decimal.Decimal):
-#             if o % 1 > 0:
-#                 return float(o)
-#             else:
-#                 return int(o)
-#         return super(DecimalEncoder, self).default(o)
+class AboutPageView(TemplateView):
+    template_name = "about.html"
 
+# Add this view
+class DataPageView(TemplateView):
+    def get(self, request, **kwargs):
+        # we will pass this context object into the
+        # template so that we can access the data
+        # list in the template
+        context = {
+            'data': [
+                {
+                    'name': 'Celeb 1',
+                    'worth': '3567'
+                },
+                {
+                    'name': 'Celeb 2',
+                    'worth': '2300'
+                },
+                {
+                    'name': 'Celeb 3',
+                    'worth': '1000'
+                },
+                {
+                    'name': 'Celeb 4',
+                    'worth': '4567'
+                },
+                {
+                    'name': 'Celeb 5',
+                    'worth': '7890'
+                },
+                {
+                    'name': 'Celeb 6',
+                    'worth': '12000'
+                },
+                {
+                    'name': 'Celeb 7',
+                    'worth': '8960'
+                },
+                {
+                    'name': 'Celeb 8',
+                    'worth': '6700'
+                }
+            ]
+        }
 
-def index(request):
-
-    return HttpResponse("Hi.")
-
-
-def helloDynamo(request):
-
-    ACCESS_ID="akey"
-    SECRET_KEY="skey"
-
-    dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000", aws_access_key_id=ACCESS_ID, aws_secret_access_key=SECRET_KEY)
-    table = dynamodb.Table('Movies')
-
-
-    outVal = "Movies from 1985<br/>"
-    response = table.query(
-        KeyConditionExpression=Key('year').eq(1985)
-        )
-    for i in response['Items']:
-        outVal = outVal + str(i['year']) + ":" + str(i['title'])+"<br/>"
-
-    return HttpResponse("hello dynamo<br/>" + outVal)
+        return render(request, 'data.html', context)

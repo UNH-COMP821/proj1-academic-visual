@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}About Us {% endblock %}About Us</title>
+</head>
+<body>
+  {% block pagecontent %}
+  <p>
+    We have listed course transfer process for 3 colleges listed below
+
+  <ol>
+    <li>Concord's NHTI Community College.</li>
+    <li>Nashua Community College</li>
+    <li>Manchester Community College</li>
+  </ol>
+  </p>
+  {% include 'partials/nav-bar.html' %} <!--Add this-->
+
+  {% endblock %}
+</body>
+</html>

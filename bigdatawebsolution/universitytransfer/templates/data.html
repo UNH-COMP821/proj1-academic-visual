@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% block pagecontent %}
+    <div class="table-div">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Celebrity Name</th>
+            <th>Net Worth</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for celebrity in data %}
+            <tr>
+              <td>{{ celebrity.name }}</td>
+              <td>{{ celebrity.worth }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% include 'partials/nav-bar.html' %} <!--Add this-->
+    {% endblock %}
+  </body>
+  </html>

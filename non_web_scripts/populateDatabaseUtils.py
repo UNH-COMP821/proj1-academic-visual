@@ -10,6 +10,15 @@ class LogUtil:
     def Write(msg):
         print(msg)
 
+class DecimalEncoder(json.JSONEncoder):
+    def default(self, o): # pylint: disable=E0202
+        if isinstance(o, decimal.Decimal):
+            if o % 1 > 0:
+                return float(o)
+            else:
+                return int(o)
+        return super(DecimalEncoder, self).default(o)
+
 class DynamoDbHelpers:
     
     ACCESS_ID="akey"
@@ -71,3 +80,50 @@ class DynamoDbHelpers:
         #                   print("Item : " + i)
 
         print("End: printAllTables")
+
+    @staticmethod
+    def InsertData(tableName,item):
+        print("start: insetData")
+        
+        dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000", aws_access_key_id=DynamoDbHelpers.ACCESS_ID, aws_secret_access_key=DynamoDbHelpers.SECRET_KEY)
+
+        table = dynamodb.Table(tableName)
+
+        table.put_item(
+            Item=item
+        )
+
+        print("End")
+    
+    @staticmethod
+    def PrintTableData(tableName, pe, ean):
+        print("Start printTableData")
+        dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000", aws_access_key_id=DynamoDbHelpers.ACCESS_ID, aws_secret_access_key=DynamoDbHelpers.SECRET_KEY)
+
+        table = dynamodb.Table(tableName)
+
+
+
+        response = table.scan(
+            ProjectionExpression=pe,
+            ExpressionAttributeNames= ean
+            )
+
+        print(response)
+
+        
+        for i in response['Items']:
+            print("reasponse type=",type(i))
+
+            
+            print(json.dumps(i, cls=DecimalEncoder))
+
+        while 'LastEvaluatedKey' in response:
+            response = table.scan(
+                ProjectionExpression=pe,
+                ExpressionAttributeNames= ean,
+                ExclusiveStartKey=response['LastEvaluatedKey']
+                )
+
+
+        print("End printTableData")

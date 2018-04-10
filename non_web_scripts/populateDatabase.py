@@ -3,6 +3,23 @@ from populateDatabaseUtils import DynamoDbHelpers
 from tkinter import *
 
 class HandleCommands():
+    def PrintAllTableValuesCalled(self):
+        LogUtil.Write("PrintAllTableValuesCalled Called")
+        
+        pe ="#i, #n"
+        # Expression Attribute Names for Projection Expression only.
+        ean = { "#i": "id","#n": "name",}
+        DynamoDbHelpers.PrintTableData("project1.school", pe, ean)
+
+
+    def InsertDataCalled(self):
+        LogUtil.Write("Insert Called")
+        item={
+            'id':1,
+            'name':"NHTI",
+        }
+        DynamoDbHelpers.InsertData("project1.school", item)
+
     def DeleteTableCalled(self):
         LogUtil.Write("Delete Called")
         DynamoDbHelpers.DeleteTable("project1.school")
@@ -14,7 +31,7 @@ class HandleCommands():
 
     def CreateTableCalled(self):
         LogUtil.Write("Create Called")
-        
+
         keySchema=[
                 {
                     'AttributeName': 'id',
@@ -88,9 +105,17 @@ class Application(Frame):
         print("printAllTableNamesBtn called")
         hndlCommands.PrintAllTableNamesCalled()
 
+    def printAllTableValuesBtn(self):
+        print("printAllTableValuesBtn called")
+        hndlCommands.PrintAllTableValuesCalled()
+
     def deleteTablesBtn(self):
         print("deleteTablesBtn called")
         hndlCommands.DeleteTableCalled()
+    
+    def insertDataBtn(self):
+        print("insertDataBtn called")
+        hndlCommands.InsertDataCalled()
 
     def createWidgets(self):
         self.QUIT = Button(self)
@@ -118,6 +143,18 @@ class Application(Frame):
         self.delete_table["compound"] = "center"
         self.delete_table["command"] = self.deleteTablesBtn
         self.delete_table.pack({"side": "top"})
+
+        self.insertdata = Button(self)
+        self.insertdata["text"] = "insert dummy data"
+        self.insertdata["compound"] = "center"
+        self.insertdata["command"] = self.insertDataBtn
+        self.insertdata.pack({"side": "top"})
+
+        self.dumpData = Button(self)
+        self.dumpData["text"] = "print table values"
+        self.dumpData["compound"] = "center"
+        self.dumpData["command"] = self.printAllTableValuesBtn
+        self.dumpData.pack({"side": "top"})
 
     def __init__(self, master=None):
         Frame.__init__(self, master)

@@ -1,6 +1,6 @@
 digraph G {
 
-       transfer [label="Transfer"  URL= "https://www.nhtransfer.org/sites/nhtransfer.org/files/media/nhtransferapplication.pdf" color=lightgreen fillcolor=lightyellow style=filled]
+       transfer [label="Transfer and Apply"  URL= "https://www.nhtransfer.org/sites/nhtransfer.org/files/media/nhtransferapplication.pdf" color=lightgreen fillcolor=lightyellow style=filled]
   compare_tuition_cost [label="Compare Tuition Cost" URL="https://manchester.unh.edu/costs" color=lightgreen fillcolor=lightyellow style=filled]
 
 
@@ -19,7 +19,7 @@ apply [label=Apply URL="/index.html" color=lightgreen fillcolor=lightyellow styl
              nashua_web -> list_of_unh_programs
 	list_of_unh_programs -> transfer
 	list_of_unh_programs -> compare_tuition_cost
-	 transfer -> apply 
+	 
 
 
 }

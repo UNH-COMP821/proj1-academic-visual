@@ -1,0 +1,58 @@
+digraph G { 
+    
+     transfer [label= "SELECT YOUR COLLEGE " ] 
+     from_nhit [label="Concord's  Community College" URL="/transfer_college?college=nhit" color=lightgreen fillcolor=lightyellow style=filled] 
+     from_nashua [label="Nashua Community College" URL="/transfer_college?college=nashua" color=lightgreen fillcolor=lightyellow style=filled] 
+     from_mcc [label="Manchester Community College" URL="/transfer_college?college=mcc" color=lightgreen fillcolor=lightyellow style=filled] 
+
+
+transfer_to [label="Transfer and Apply" URL="https://www.nhtransfer.org/sites/nhtransfer.org/files/media/nhtransferapplication.pdf" color=lightgreen fillcolor=lightyellow style=filled] 
+unh [label="UNH-Manchester MS IT " URL="https://manchester.unh.edu/academics/degree-programs/information-technology" color=lightgreen fillcolor=lightyellow style=filled] 
+  
+  
+     transfer -> from_nhit [label=from] 
+     transfer -> from_nashua [label=from] 
+     transfer -> from_mcc [label=from] 
+
+     unh_programs [label="UNH Programs" ] 
+
+     nhit_compare_tuition_cost [label="Compare Tuition Cost" URL="https://manchester.unh.edu/costs" color=lightgreen fillcolor=lightyellow style=filled] 
+     nhit_computer_science [label="Concord's Computer Information System" URL= "https://manchester.unh.edu/sites/default/files/media/nhti_cis_pathways_0.pdf" color=lightgreen fillcolor=lightyellow style=filled ] 
+     unh_programs-> nhit_compare_tuition_cost 
+     from_nhit -> nhit_computer_science 
+
+    
+
+     nhit_computer_science -> unh_programs
+      
+    
+
+nashua_cyber_security [label="Networking" URL= "https://manchester.unh.edu/sites/default/files/media/ncc_comp_net_cis_pathways_0.pdf " color=lightgreen fillcolor=lightblue style=filled] 
+nashua_software_Development [label="Software Development" URL="https://manchester.unh.edu/sites/default/files/media/ncc_software_dev_cis_pathways_0.pdf"  color=lightgreen fillcolor=lightblue style=filled] 
+nashua_web_Application_Development[label="Web Application Development" URL="https://manchester.unh.edu/sites/default/files/media/ncc_web_app_cis_pathways_0.pdf" color=lightgreen fillcolor=lightblue style=filled] 
+
+from_nashua ->nashua_cyber_security
+
+from_nashua ->nashua_software_Development
+
+from_nashua ->nashua_web_Application_Development
+
+nashua_cyber_security->unh_programs
+
+nashua_software_Development->unh_programs
+
+nashua_web_Application_Development->unh_programs
+
+nhit_computer_science [label="Concord's Computer Information System"  URL= "https://manchester.unh.edu/sites/default/files/media/nhti_cis_pathways_0.pdf" color=lightgreen fillcolor=lightyellow style=filled ] 
+
+mcc_computer_science [label="Manchester Computer Information System" URL ="https://manchester.unh.edu/sites/default/files/media/mcc_cis_pathways.pdf"  color=lightgreen fillcolor=lightyellow style=filled] 
+
+from_mcc->mcc_computer_science
+mcc_computer_science->unh_programs
+
+
+unh_programs -> unh
+unh->transfer_to
+
+   
+} 

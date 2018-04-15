@@ -1,18 +1,18 @@
 digraph G {
 	
                              from_nhit [label="Concord's Community College" URL="/transfer_college?college=nhit" color=lightgreen fillcolor=lightyellow style=filled]
-                           transfer [label="Transfer" URL= "https://www.nhtransfer.org/sites/nhtransfer.org/files/media/nhtransferapplication.pdf" color=lightgreen fillcolor=lightyellow style=filled]
+                           transfer [label="Transfer and Apply" URL= "https://www.nhtransfer.org/sites/nhtransfer.org/files/media/nhtransferapplication.pdf" color=lightgreen fillcolor=lightyellow style=filled]
 	nhit_compare_tuition_cost [label="Compare Tuition Cost" URL="https://manchester.unh.edu/costs" color=lightgreen fillcolor=lightyellow style=filled]
 	nhit_list_of_unh_programs [label="UNH MS IT" URL="https://manchester.unh.edu/academics/degree-programs/information-technology"                   color=lightgreen fillcolor=lightyellow style=filled ]
 	nhit_computer_science [label=" Concord's Computer Information System" URL ="https://manchester.unh.edu/sites/default/files/media/nhti_cis_pathways_0.pdf" color=lightgreen fillcolor=lightyellow style=filled]
 	
 	
-	nhit_apply_to_it [label=Apply URL="/index.html" color=lightgreen fillcolor=lightyellow style=filled]
+	
 	from_nhit -> nhit_computer_science
 	nhit_computer_science -> nhit_list_of_unh_programs
                            nhit_list_of_unh_programs -> transfer
                           nhit_list_of_unh_programs -> nhit_compare_tuition_cost
-                          transfer -> nhit_apply_to_it [label=Apply URL="/index.html" color=lightgreen fillcolor=lightyellow style=filled]
+                          
 	
 }
 

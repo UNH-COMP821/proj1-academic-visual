@@ -1,0 +1,56 @@
+digraph G { 
+    
+     
+     from_nhit [label="Concord NHTI Community College" URL="/transfer_college?college=nhit" color=lightgreen fillcolor=lightyellow style=filled] 
+     from_nashua [label="Nashua Community College" URL="/transfer_college?college=nashua" color=lightgreen fillcolor=lightyellow style=filled] 
+     from_mcc [label="Manchester Community College" URL="/transfer_college?college=mcc" color=lightgreen fillcolor=lightyellow style=filled] 
+
+
+
+unh [label="UNH Manchester" URL="https://manchester.unh.edu/" color=lightgreen fillcolor=lightyellow style=filled] 
+  
+  
+     
+
+     unh_programs [label="UNH Programs"] 
+
+     nhit_compare_tuition_cost [label="Compare Tuition Cost" URL="/index.html" color=lightgreen fillcolor=lightyellow style=filled] 
+     nhit_computer_science [label="NHTI Computer Science"] 
+     unh_programs-> nhit_compare_tuition_cost 
+     from_nhit -> nhit_computer_science 
+
+     
+
+     nhit_computer_science -> unh_programs
+      
+    
+
+nashua_cyber_security [label="Cyber Security" color=lightgreen fillcolor=lightblue style=filled] 
+nashua_software_Development [label="Software Development" color=lightgreen fillcolor=lightblue style=filled] 
+nashua_web_Application_Development[label="Web Application Development" color=lightgreen fillcolor=lightblue style=filled] 
+
+from_nashua ->nashua_cyber_security
+
+from_nashua ->nashua_software_Development
+
+from_nashua ->nashua_web_Application_Development
+
+nashua_cyber_security->unh_programs
+
+nashua_software_Development->unh_programs
+
+nashua_web_Application_Development->unh_programs
+
+nhit_computer_science [label="NHIT Computer Science"] 
+
+mcc_computer_science [label="Manchester Computer Science"] 
+
+from_mcc->mcc_computer_science
+mcc_computer_science->unh_programs
+
+
+unh_programs -> unh
+unh->apply
+ 
+   
+} 

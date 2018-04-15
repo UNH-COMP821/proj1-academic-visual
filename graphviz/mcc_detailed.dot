@@ -1,0 +1,20 @@
+digraph G { 
+    
+      
+     from_mcc [label="Manchester Community College" URL="/transfer_college?college=mcc" color=lightgreen fillcolor=lightyellow style=filled] 
+
+unh_programs [label="UNH IT Programs" URL="https://manchester.unh.edu/academics/degree-programs/information-technology?utm_source=google&utm_medium=txtad&utm_campaign=msit"] 
+  
+mcc_computer_science [label="Manchester Computer Science"] 
+
+from_mcc->mcc_computer_science
+mcc_computer_science->unh_programs
+
+unh [label="UNH Transfer Application Form" URL="https://manchester.unh.edu/" color=lightgreen fillcolor=lightyellow style=filled] 
+cost_tution[label="Tuition Details"]
+unh_programs ->cost_tution
+unh_programs -> unh
+unh->apply
+ 
+   
+} 

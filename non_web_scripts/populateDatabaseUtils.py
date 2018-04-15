@@ -4,11 +4,21 @@ from botocore.exceptions import ClientError
 from django.db import connections
 import json
 import decimal
+from boto3.dynamodb.conditions import Key, Attr
 
 class LogUtil:
     @staticmethod
     def Write(msg):
         print(msg)
+
+class DecimalEncoder(json.JSONEncoder):
+    def default(self, o): # pylint: disable=E0202
+        if isinstance(o, decimal.Decimal):
+            if o % 1 > 0:
+                return float(o)
+            else:
+                return int(o)
+        return super(DecimalEncoder, self).default(o)
 
 class DynamoDbHelpers:
     
@@ -50,6 +60,56 @@ class DynamoDbHelpers:
         LogUtil.Write("end: delete table")
 
     @staticmethod
+    def ClearTable(tableName, pe, ean, deleteKeyName, deleteSortKeyName=None):
+        LogUtil.Write("start: ClearTable")
+        LogUtil.Write("attempting to clear table:"+tableName)
+        
+        dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000", aws_access_key_id=DynamoDbHelpers.ACCESS_ID, aws_secret_access_key=DynamoDbHelpers.SECRET_KEY)
+
+        table = dynamodb.Table(tableName)
+
+        response = table.scan(
+            ProjectionExpression=pe,
+            ExpressionAttributeNames= ean
+            )
+
+        print(response)
+        
+        for i in response['Items']:
+
+            if deleteSortKeyName==None:
+                print("attempting to delete:" + deleteKeyName +"--" + str(i[deleteKeyName]))
+                table.delete_item(
+                    Key={
+                        str(deleteKeyName):i[deleteKeyName]
+                    }
+                )
+            else:
+                print("attempting to delete:" + deleteKeyName +"--" + str(i[deleteKeyName]) + ","+deleteSortKeyName + str(i[deleteSortKeyName]))
+                table.delete_item(
+                    Key={
+                        str(deleteKeyName):i[deleteKeyName],
+                        str(deleteSortKeyName):i[deleteSortKeyName],
+                    }
+                )
+            
+        while 'LastEvaluatedKey' in response:
+            response = table.scan(
+                ProjectionExpression=pe,
+                ExpressionAttributeNames= ean,
+                ExclusiveStartKey=response['LastEvaluatedKey']
+                )
+            print("attempting to delete:" + str(i[deleteKeyName]))
+            table.delete_item(
+                Key={
+                    str(deleteKeyName):i[deleteKeyName]
+                }
+            )
+
+        LogUtil.Write("end: ClearTable")
+
+
+    @staticmethod
     def PrintAllTables():
         print("start: printAllTables")
         #list all tables at amazon and show structure 
@@ -71,3 +131,50 @@ class DynamoDbHelpers:
         #                   print("Item : " + i)
 
         print("End: printAllTables")
+
+    @staticmethod
+    def InsertData(tableName,item):
+        print("start: insetData")
+        
+        dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000", aws_access_key_id=DynamoDbHelpers.ACCESS_ID, aws_secret_access_key=DynamoDbHelpers.SECRET_KEY)
+
+        table = dynamodb.Table(tableName)
+
+        table.put_item(
+            Item=item
+        )
+
+        print("End")
+    
+    @staticmethod
+    def PrintTableData(tableName, pe, ean):
+        print("Start printTableData")
+        dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000", aws_access_key_id=DynamoDbHelpers.ACCESS_ID, aws_secret_access_key=DynamoDbHelpers.SECRET_KEY)
+
+        table = dynamodb.Table(tableName)
+        print("scanning table:" + tableName)
+
+
+        response = table.scan(
+            ProjectionExpression=pe,
+            ExpressionAttributeNames= ean
+            )
+
+        print(response)
+
+        
+        for i in response['Items']:
+            print("reasponse type=",type(i))
+
+            
+            print(json.dumps(i, cls=DecimalEncoder))
+
+        while 'LastEvaluatedKey' in response:
+            response = table.scan(
+                ProjectionExpression=pe,
+                ExpressionAttributeNames= ean,
+                ExclusiveStartKey=response['LastEvaluatedKey']
+                )
+
+
+        print("End printTableData")

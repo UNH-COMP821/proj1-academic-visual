@@ -20,7 +20,7 @@ from django.http import HttpResponse
 
 def index(request):
 
-    return HttpResponse("Hello, world. You're at the university Transfer index.")
+    return HttpResponse("Hi.")
 
 
 def helloDynamo(request):

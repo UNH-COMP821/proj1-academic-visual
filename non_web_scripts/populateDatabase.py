@@ -1,37 +1,246 @@
 from populateDatabaseUtils import LogUtil
 from populateDatabaseUtils import DynamoDbHelpers
-from tkinter import *
+from tkinter import filedialog, Button, Frame, Tk
+import sys
+#from tkinter import *
+#from tkFileDialog import *
+#import Tkinter, Tkconstants, tkFileDialog
+import os
+import re
+import PyPDF2
 
 class HandleCommands():
-    def PrintAllTableValuesCalled(self):
-        LogUtil.Write("PrintAllTableValuesCalled Called")
-        
-        pe ="#i, #n"
-        # Expression Attribute Names for Projection Expression only.
-        ean = { "#i": "id","#n": "name",}
-        DynamoDbHelpers.PrintTableData("project1.school", pe, ean)
+    nhtiUniversityId =1
+    nhtiUniversityName="Concord Community College"
+    nhtiDepartmentCisId =1
+    nhtiDepartmentCisName ="Computer Information System"
+    nhtiDepartmentCsId =2
+    nhtiDepartmentCsName ="Computer Science"
 
+    nccUniversityId =2
+    nccUniversityName="Nashua Community College"
+    nccDepartmentCisId =1
+    nccDepartmentCisName ="Computer Information System"
+    nccDepartmentSoftDevId =2
+    nccDepartmentSoftDevName ="Software Developer"
+
+    mccUniversityId =3
+    mccUniversityName="Manchester Community College"
+    mccDepartmentCisId =1
+    mccDepartmentCisName ="Computer Information System"
+
+    schoolTblName="project1.school"
+    schoolTblPe = "#i, #n"
+    schoolTblEan = { "#i": "id","#n": "name",}
+
+    schoolDepartmentTblName="project1.school.department"
+    schoolDepartmentTblPe = "#i, department_id, #n"
+    schoolDepartmentTblEan = { "#i": "school_id","#n": "name",}
+
+    schoolTransferMapTblName="project1.school.transfer.map"
+    schoolTransferMapTblPe = "#i, department_id, courses_map"
+    schoolTransferMapTblEan = { "#i": "school_id"}
+
+    def PrintAllTableValuesCalled(self):
+        LogUtil.Write("PrintAllTableValuesCalled Called")        
+        DynamoDbHelpers.PrintTableData(self.schoolTblName, self.schoolTblPe, self.schoolTblEan)
+        DynamoDbHelpers.PrintTableData(self.schoolDepartmentTblName, self.schoolDepartmentTblPe, self.schoolDepartmentTblEan)
+        DynamoDbHelpers.PrintTableData(self.schoolTransferMapTblName, self.schoolTransferMapTblPe, self.schoolTransferMapTblEan)
+
+    def loadMccCis(self, filePath, universityId, departmentId):
+        courseMapStr="["
+        fp = open(filePath)
+        for i, line in enumerate(fp):
+            #print(line)
+            if i > 9 and i < 31:
+                print(line)
+                replaceChar = "\xAD"
+                line= line.replace(replaceChar, "-")
+                #line = re.sub(r"\w(-)\w", "*", line)
+                
+                #print(line)
+                pattern = " - "
+                words2 = re.split(pattern,line)
+                classNum=""
+                mappingCourse=""
+                #print(">>"+str(len(words2)))
+                if len(words2) > 1:
+                    classNum = words2[0].strip()
+                    mapCourseIndex = len(words2)-2
+                    if mapCourseIndex < 1:
+                        mapCourseIndex = 1
+                    mappingCourse = words2[mapCourseIndex].strip()    
+                    foundIndex= mappingCourse.find("  ")
+                    mappingCoursePre= mappingCourse[:foundIndex].strip()
+                    mappingCourse= mappingCourse[foundIndex:].strip()
+                    print("classNum-mappingCourse='" + classNum+"', '"+mappingCourse+"'")                
+                    courseMapStr = self.appendCourses(courseMapStr, classNum, mappingCourse)
+                                   
+                    if mappingCoursePre.endswith("or"):
+                        line = fp.readline()
+                        line= line.replace(replaceChar, "-")
+                        print("next:" + line)
+                        words2 = re.split(pattern,line)
+                        classNum = words2[0].strip()
+                        print("classNum-mappingCourse='" + classNum+"', '"+mappingCourse+"'")                
+                        courseMapStr = self.appendCourses(courseMapStr, classNum, mappingCourse)
+                else:
+                    print("match?" + words2[0])
+                    words2[0] = words2[0].strip()
+                    foundIndex= words2[0].find("  ")
+                    classNum= words2[0][:foundIndex].strip()
+                    mappingCourse= words2[0][foundIndex:].strip()
+                    print("classNum-mappingCourse='" + classNum+"', '"+mappingCourse+"'")                    
+                    courseMapStr = self.appendCourses(courseMapStr, classNum, mappingCourse)
+            elif i > 30:
+                print("@line > 31")
+                break
+        fp.close()
+        courseMapStr = courseMapStr +"]"
+        print("json>"+courseMapStr)
+        item={
+                'school_id':universityId,
+                'department_id':departmentId,
+                'courses_map':courseMapStr,
+            }
+        DynamoDbHelpers.InsertData(self.schoolTransferMapTblName, item)
+
+    def appendCourses(self,courseMapStr,classNum,mappingCourse):
+        if len(courseMapStr) > 1:
+            courseMapStr = courseMapStr + ","
+        courseMapStr = courseMapStr + "{" + "\"course\":\"" + classNum +"\",\"unh_map\":\""+mappingCourse+"\"}"
+        return courseMapStr
+
+    def LoadMccFileCalled(self, fileDir):
+        LogUtil.Write("LoadMccFileCalled Called")
+        LogUtil.Write("fileDir:" + fileDir)
+        
+        #1) delete all university data
+        #2) load basic university data
+        #2) load department from  
+
+        self.clearAllTables()
+        self.populateInitialDbValues()
+
+        for file in os.listdir(fileDir):
+            if file.endswith(".txt"):
+                print(os.path.join(fileDir, file))
+                filePath = os.path.join(fileDir, file)
+                print(file)
+                if str(file) == "mcc_cis_pathways.txt":
+                    print("dound mcc_cis_pathways.txt")
+                    self.loadMccCis(filePath, self.mccUniversityId, self.mccDepartmentCisId)
+                else:                    
+                    print("not mcc_cis_pathways.txt>" + file)
+
+    def clearAllTables(self):
+        pe ="#i"
+        # Expression Attribute Names for Projection Expression only.
+        ean = { "#i": "id",}
+        DynamoDbHelpers.ClearTable(self.schoolTblName,pe, ean, "id")
+        
+        pe ="#sid,department_id"
+        ean = { "#sid": "school_id",}
+        DynamoDbHelpers.ClearTable(self.schoolTransferMapTblName,pe, ean, "school_id","department_id")
+        
+        pe ="#sid,department_id"
+        ean = { "#sid": "school_id",}
+        DynamoDbHelpers.ClearTable(self.schoolDepartmentTblName,pe, ean, "school_id","department_id")
+        
+        pe ="#sid,department_id"
+        ean = { "#sid": "school_id",}
+        DynamoDbHelpers.ClearTable(self.schoolTransferMapTblName,pe, ean, "school_id","department_id")
+
+    def populateInitialDbValues(self):
+        print("begin populateInitialDbValues")
+        self.initialLoadNhti()
+        self.initialLoadNcc()
+        self.initialLoadMcc()
+        print("End populateInitialDbValues")
+
+    def initialLoadNhti(self):        
+        item={
+            'id':self.nhtiUniversityId,
+            'name':self.nhtiUniversityName,
+        }
+        DynamoDbHelpers.InsertData(self.schoolTblName, item)
+
+        item={
+            'school_id':self.nhtiUniversityId,
+            'department_id':self.nhtiDepartmentCisId,
+            'name':self.nhtiDepartmentCisName,
+        }
+        DynamoDbHelpers.InsertData(self.schoolDepartmentTblName, item)
+
+        item={
+            'school_id':self.nhtiUniversityId,
+            'department_id':self.nhtiDepartmentCsId,
+            'name':self.nhtiDepartmentCsName,
+        }
+        DynamoDbHelpers.InsertData(self.schoolDepartmentTblName, item)
+
+
+    def initialLoadNcc(self):        
+        item={
+            'id':self.nccUniversityId,
+            'name':self.nccUniversityName,
+        }
+        DynamoDbHelpers.InsertData(self.schoolTblName, item)
+              
+        item={
+            'school_id':self.nccUniversityId,
+            'department_id':self.nccDepartmentCisId,
+            'name':self.nccDepartmentCisName,
+        }
+        DynamoDbHelpers.InsertData(self.schoolDepartmentTblName, item)
+        item={
+            'school_id':self.nccUniversityId,
+            'department_id':self.nccDepartmentSoftDevId,
+            'name':self.nccDepartmentSoftDevName,
+        }
+        DynamoDbHelpers.InsertData(self.schoolDepartmentTblName, item)
+    
+    def initialLoadMcc(self):
+        item={
+                'id':self.mccUniversityId,
+                'name':self.mccUniversityName,
+            }
+        DynamoDbHelpers.InsertData(self.schoolTblName, item)
+
+        item={
+            'school_id':self.mccUniversityId,
+            'department_id':self.mccDepartmentCisId,
+            'name':self.mccDepartmentCisName,
+        }
+        DynamoDbHelpers.InsertData(self.schoolDepartmentTblName, item)
+
+    def loadInitialUniversityValues(self):
+        print("End loadInitialUniversityValues")
 
     def InsertDataCalled(self):
         LogUtil.Write("Insert Called")
-        item={
-            'id':1,
-            'name':"NHTI",
-        }
-        DynamoDbHelpers.InsertData("project1.school", item)
+        self.initialLoadNhti()
+        self.initialLoadMcc()
+        self.initialLoadNcc()
 
     def DeleteTableCalled(self):
         LogUtil.Write("Delete Called")
         DynamoDbHelpers.DeleteTable("project1.school")
         DynamoDbHelpers.DeleteTable("project1.school.transfer.map")
+        DynamoDbHelpers.DeleteTable("project1.school.department")
 
     def PrintAllTableNamesCalled(self):
         LogUtil.Write("PrintAllTableNames Called")
         DynamoDbHelpers.PrintAllTables()
 
+    def ClearAllTableCalled(self):
+        LogUtil.Write("ClearAllTableCalled Called")
+        self.clearAllTables()
+
     def CreateTableCalled(self):
         LogUtil.Write("Create Called")
 
+        # create project1.school
         keySchema=[
                 {
                     'AttributeName': 'id',
@@ -47,14 +256,38 @@ class HandleCommands():
             ]
         DynamoDbHelpers.CreateTable('project1.school',keySchema,attributeDefinitions)
 
-        
+
+        # create project1.school.department
         keySchema=[
                 {
                     'AttributeName': 'school_id',
                     'KeyType': 'HASH'  #Partition key
                 },
                 {
-                    'AttributeName': 'course_id',
+                    'AttributeName': 'department_id',
+                    'KeyType': 'RANGE'  #Sort key
+                }
+            ]
+        attributeDefinitions=[
+                {
+                    'AttributeName': 'school_id',
+                    'AttributeType': 'N' 
+                },
+                {
+                    'AttributeName': 'department_id',
+                    'AttributeType': 'N' 
+                }
+            ]
+        DynamoDbHelpers.CreateTable('project1.school.department',keySchema,attributeDefinitions)
+        
+        # create project1.school.transfer.map
+        keySchema=[
+                {
+                    'AttributeName': 'school_id',
+                    'KeyType': 'HASH'  #Partition key
+                },
+                {
+                    'AttributeName': 'department_id',
                     'KeyType': 'RANGE'  #Sort key
                 }
             ]
@@ -64,8 +297,8 @@ class HandleCommands():
                     'AttributeType': 'N'
                 },
                 {
-                    'AttributeName': 'course_id',
-                    'AttributeType': 'S'
+                    'AttributeName': 'department_id',
+                    'AttributeType': 'N'
                 }
             ]
         DynamoDbHelpers.CreateTable('project1.school.transfer.map',keySchema,attributeDefinitions)
@@ -105,10 +338,20 @@ class Application(Frame):
         print("printAllTableNamesBtn called")
         hndlCommands.PrintAllTableNamesCalled()
 
+    def clearAllTableBtn(self):
+        print("clearAllTableBtn called")
+        hndlCommands.ClearAllTableCalled()
+
+
     def printAllTableValuesBtn(self):
         print("printAllTableValuesBtn called")
         hndlCommands.PrintAllTableValuesCalled()
 
+    def LoadMccFileBtn(self):
+        print("LoadMccFileBtn called")
+        fileDirectory = filedialog.askdirectory()
+        hndlCommands.LoadMccFileCalled(fileDirectory)
+        
     def deleteTablesBtn(self):
         print("deleteTablesBtn called")
         hndlCommands.DeleteTableCalled()
@@ -137,6 +380,12 @@ class Application(Frame):
         self.view_table["compound"] = "center"
         self.view_table["command"] = self.printAllTableNamesBtn
         self.view_table.pack({"side": "top"})
+
+        self.clear_table = Button(self)
+        self.clear_table["text"] = "Clear all values in Tables"
+        self.clear_table["compound"] = "center"
+        self.clear_table["command"] = self.clearAllTableBtn
+        self.clear_table.pack({"side": "top"})
         
         self.delete_table = Button(self)
         self.delete_table["text"] = "Delete Tables"
@@ -155,6 +404,13 @@ class Application(Frame):
         self.dumpData["compound"] = "center"
         self.dumpData["command"] = self.printAllTableValuesBtn
         self.dumpData.pack({"side": "top"})
+
+        
+        self.loadMcc = Button(self)
+        self.loadMcc["text"] = "Load Mcc data from directory"
+        self.loadMcc["compound"] = "center"
+        self.loadMcc["command"] = self.LoadMccFileBtn
+        self.loadMcc.pack({"side": "top"})
 
     def __init__(self, master=None):
         Frame.__init__(self, master)

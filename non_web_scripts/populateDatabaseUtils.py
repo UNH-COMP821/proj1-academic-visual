@@ -4,6 +4,7 @@ from botocore.exceptions import ClientError
 from django.db import connections
 import json
 import decimal
+from boto3.dynamodb.conditions import Key, Attr
 
 class LogUtil:
     @staticmethod
@@ -59,6 +60,56 @@ class DynamoDbHelpers:
         LogUtil.Write("end: delete table")
 
     @staticmethod
+    def ClearTable(tableName, pe, ean, deleteKeyName, deleteSortKeyName=None):
+        LogUtil.Write("start: ClearTable")
+        LogUtil.Write("attempting to clear table:"+tableName)
+        
+        dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000", aws_access_key_id=DynamoDbHelpers.ACCESS_ID, aws_secret_access_key=DynamoDbHelpers.SECRET_KEY)
+
+        table = dynamodb.Table(tableName)
+
+        response = table.scan(
+            ProjectionExpression=pe,
+            ExpressionAttributeNames= ean
+            )
+
+        print(response)
+        
+        for i in response['Items']:
+
+            if deleteSortKeyName==None:
+                print("attempting to delete:" + deleteKeyName +"--" + str(i[deleteKeyName]))
+                table.delete_item(
+                    Key={
+                        str(deleteKeyName):i[deleteKeyName]
+                    }
+                )
+            else:
+                print("attempting to delete:" + deleteKeyName +"--" + str(i[deleteKeyName]) + ","+deleteSortKeyName + str(i[deleteSortKeyName]))
+                table.delete_item(
+                    Key={
+                        str(deleteKeyName):i[deleteKeyName],
+                        str(deleteSortKeyName):i[deleteSortKeyName],
+                    }
+                )
+            
+        while 'LastEvaluatedKey' in response:
+            response = table.scan(
+                ProjectionExpression=pe,
+                ExpressionAttributeNames= ean,
+                ExclusiveStartKey=response['LastEvaluatedKey']
+                )
+            print("attempting to delete:" + str(i[deleteKeyName]))
+            table.delete_item(
+                Key={
+                    str(deleteKeyName):i[deleteKeyName]
+                }
+            )
+
+        LogUtil.Write("end: ClearTable")
+
+
+    @staticmethod
     def PrintAllTables():
         print("start: printAllTables")
         #list all tables at amazon and show structure 
@@ -101,7 +152,7 @@ class DynamoDbHelpers:
         dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000", aws_access_key_id=DynamoDbHelpers.ACCESS_ID, aws_secret_access_key=DynamoDbHelpers.SECRET_KEY)
 
         table = dynamodb.Table(tableName)
-
+        print("scanning table:" + tableName)
 
 
         response = table.scan(

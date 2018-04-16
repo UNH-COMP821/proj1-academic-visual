@@ -1,0 +1,184 @@
+                                                                                                          Black
+
+
+
+
+                                                                                                                      Academic Year 2017-2018
+
+Computer Information Systems Public Pathways Program
+We have partnered with NHTI to offer a Pathways Program that allows you to smoothly transition to UNH Manchester.
+This curriculum map shows you the NHTI course sequence you should follow for seamless transfer into our B.S. in
+Computer Information Systems at UNH Manchester.
+
+
+   Students must take these courses at NHTI ...                                     To fulfill these UNH degree requirements...
+
+   ENGL 101 ­ College Composition                                                   Discovery writing skills course
+   IST 102 ­ PC Applications 1                                                      Elective credit
+   IST 106 ­ IT Career Topics                                                       Elective credit
+   IST 140 ­ Database Design and Management                                         Major concentration course
+   IST 151 ­ Introduction to Networks       2
+                                                                                    Elective credit
+   MATH 124 ­ College Algebra                                                       No transfer credit
+   ENGL 120 ­ Communications                                                        Elective credit
+   IST 108 ­ Personal Computer Hardware and Software               1
+                                                                                    COMP 430 ­ System Fundamentals
+   IST 153 ­ Routing and Switching Essentials                                       Elective credit
+   MATH 125 ­ Finite Mathematics                                                    Discovery quantitative reasoning course
+   ENGL 285 ­ Literature, Technology and Culture                                    Discovery environment, technology and society course
+   IST 251 ­ Scaling Networks     2
+                                                                                    COMP 550 ­ Networking Concepts
+   IST 280 ­ Windows Server Operating Systems                                       COMP 530 ­ Machine and Network Architecture
+   IST 293 ­ IT Career Development                                                  Major concentration course
+   Information Technology elective                                                  Major concentration course
+   Discovery-approved social science                                                Discovery social science course
+   Discovery-approved biological or physical science                                Discovery biological or physical science course
+   IST 253 ­ Connecting Networks                                                    Elective credit
+   IST 263 ­ Security                                                               Major concentration course
+   IST 267 ­ CCNA Voice                                                             Elective credit
+   IST 294 ­ Senior IT Internship                                                   Major concentration course
+   Discovery-approved fine arts                                                     Discovery fine and performing arts course
+
+
+
+   Note: See page 3 for information about UNH's Discovery Program courses.
+   1. Students must earn a C or better in both IST 102 and IST 108 to earn credit for COMP 430.
+   2. Students must earn a C or better in both IST 151 and IST 251 to earn credit for COMP 550.
+
+   Course titles, names and/or sequencing are subject to change.
+
+
+
+
+                            University of New Hampshire at Manchester · 88 Commercial Street, Manchester, NH 03101
+                         Office of Admissions: 603-641-4150 · unhm.admissions@unh.edu · manchester.unh.edu/pathways
+If you are enrolled in the NH Dual Admission Program and/or plan to finish
+your associate degree at NHTI, complete the following requirements at UNH
+Manchester to receive your bachelor's degree.
+      Major Course Requirements:
+
+     COMP 405 ­ Introduction to Internet and Web Authoring
+     COMP 425 ­ Computing Fundamentals
+     COMP 520 ­ Database Design and Development
+     COMP 525 ­ Data Structures Fundamentals
+     COMP 560 ­ Ethics and Law in the Digital Age (also fulfills Discovery humanities course)
+     COMP 715 ­ Information Security
+     COMP 730 ­ Object-Oriented Software Development
+     COMP 685 ­ Professional Development Seminar (1 credit)
+     COMP 690 ­ Internship Experience (4 credits)
+     COMP 790 ­ Capstone Project
+     One major concentration course
+     Three major elective courses
+
+      Discovery Program* Course Requirements:
+
+     Discovery world cultures course
+     Discovery biological or physical science course
+     Discovery historical perspectives course
+
+
+      University Degree Requirements:
+
+     Elective courses to fill remainder of credits required for bachelor's degree (128 total)
+     University writing requirement**
+
+         * See page 3 for information about UNH's Discovery program.
+       ** Bachelor degree candidates are required to complete four writing-intensive courses, which must include: English 401 ­ First
+          Year Writing (or equivalent transfer English composition course) and three additional writing-intensive courses, one in the
+          student's major and one at the 600-level or above.
+
+
+                            An advisor at UNH Manchester will provide you with the
+                            best possible guidance for course selections each term.
+
+
+
+
+Please also note:
+
+n   UNH Manchester accepts a maximum of 72 credits in transfer from 2-year institutions. Only courses completed with a grade of C or better
+    will be accepted as transfer credits.
+n   Students must earn a minimum overall grade point average of 2.50 at NHTI to be eligible for dual enrollment at UNH Manchester.
+
+ Course titles, names and/or sequencing are subject to change.
+
+
+
+June 5, 2017                                               UNH Manchester's Public Pathways Program qualifies for the
+The NHTI courses* listed below fulfill UNH Manchester's
+Discovery Program course requirements:
+Writing Skills                                       Environment, Technology & Society                         ECON 102C ­ Microeconomics
+ENGL 101C ­ English Composition                      ENGL 285C ­ Literature, Technology and                    POLS 110C ­ American Government
+                                                     Culture                                                   PSYC 105C ­ Intro to Psychology
+Quantitative Reasoning                                                                                         PSYC 220C ­ Human Growth &
+CPET 107C ­ Intro to Programming C++                 Historical Perspectives                                   Development: Life Span
+MATH 125C ­ Finite Mathematics                       HIST 104C ­ Western Civ.: Antiquity to 1650               SOCI 105C ­ Intro to Sociology
+MATH 205C ­ Calculus I                               HIST 105C ­ Western Civ.: 1650 to Present                 SOCI 205C ­ The Individual and Society
+MATH 251C ­ Statistics                               HIST 120C ­ U.S. History to 1870                          SOCI 214C ­ Ethnic & Race Relations
+                                                     HIST 121C ­ U.S. History 1870 to Present
+Biological Science                                   HIST 131C ­ World History I (to 1500)                     Humanities
+BIOL 125C ­ Human Genetics and Society               HIST 132C ­ World History II (1500 to                     ENGL 102C ­ Intro to Literature
+Biological Science/DLAB                              Present)                                                  ENGL 121C ­ Intro to Film
+BIOL 111C ­ General Biology I                        HIST 221C ­ New Hampshire History                         ENGL 125C ­ Communication & the
+BIOL 112C ­ General Biology II                                                                                 Literature of Science & Technology
+                                                     World Culture                                             ENGL 150C ­ Intro to Drama
+BIOL 115C ­ Intro to Ecology                         ANTH 101C ­ Intro to Cultural
+BIOL 117C ­ Intro to Plant Biology                                                                             ENGL 160C ­ Intro to Poetry
+                                                     Anthropology                                              ENGL 210C ­ British Literature I
+BIOL 120C ­ Human Biology                            ANTH 210C ­ Native American Studies
+BIOL 159C ­ Personal Nutrition                                                                                 ENGL 211C ­ British Literature II
+                                                     INDL 120C ­ Global Public Health Issues                   ENGL 214C ­ American Lit. Survey I (to 1865)
+BIOL 195C ­ Anatomy and Physiology I
+BIOL 196C ­ Anatomy and Physiology II                Fine and Performing Arts                                  ENGL 215C ­ American Lit. Survey II
+BIOL 202C ­ Microbiology                             DANC 140C ­ Intro to Modern Dance                         (1865-Present)
+ENVS 101C ­ Fundamentals of                          VRTS 101C ­ Intro to Drawing                              ENGL 251C ­ Contemporary Drama
+Environmental Science                                MUSC 105C ­ Intro to Music                                ENGL 255C ­ Shakespeare
+                                                     MUSC 106C ­ History of Jazz, Blues, Rock                  ENGL 260C ­ The Novel
+Physical Science                                     & Roll                                                    ENGL 272C ­ Modern Short Fiction
+GEOL 101C ­ Essentials of Geology                    MUSC 107C ­ World Music                                   ENGL 287C ­ Women in Literature
+                                                     THTR 110C ­ Intro to Theatre                              ENGL 291AC ­ Contemporary Latin
+Physical Science/DLAB                                                                                          American Literature
+CHEM 103C ­ General Chemistry I                      VRTS 101C ­ Intro to Drawing
+                                                     VRTS 102C ­ Intro to Visual Arts                          ENGL 291BC ­ Contemporary Spanish
+CHEM 104C ­ General Chemistry II                                                                               Literature
+CHEM 105C ­ Chemistry                                VRTS 111C ­ Survey of Western Art History
+                                                     VRTS 112C ­ Survey of Western Art History                 PHIL 110C ­ Intro to Philosophy
+CHEM 110C ­ Intro to Biochemistry                                                                              PHIL 226AC ­ Comparative World
+CHEM 120C ­ Intro to Forensic Science                VRTS 115C ­ History of Modern Art
+                                                                                                               Religions
+PHYS 133C ­ Physics I (Algebra-Based)                Social Science                                            PHIL 242C ­ Contemporary Ethical Issues
+PHYS 135C ­ Physics II (Algebra-Based)               ENGL286C/TECP86C ­ Intro to Linguistics
+PHYS 231C ­ Physics I (Calculus-Based)               ENGL 120C ­ Communications                                Writing Intensive
+PHYS 232C ­ Physics II (Calculus-Based)              ENGL 120MC ­ Communications                               ENGL 101C ­ English Composition
+SCI 104C ­ Astronomy & Space                         ENGL 120WC ­ Communications                               ENGL 120WC ­ Communicating Mindfully
+SCI 107C ­ Intro to Meteorology                      ECON 101C ­ Macroeconomics                                ENGL 201C ­ English Composition
+                                                                                                               ENGL 295AC ­ Creative Writing: Fiction
+                                                                                                               ENGL 295CB ­ Creative Writing: Poetry
+                                                                                                               ENGL 295CC ­ Creative Nonfiction
+
+
+
+
+                   UNH Manchester Bachelor Degree Requirements
+
+                   To graduate from UNH, students must fulfill course requirements in the following areas: major courses, University
+                   Discovery Program courses and electives, totaling 128 credits.
+
+
+                   Discovery Program Courses
+
+                   UNH's Discovery Program builds each student's foundation in general education. To fulfill the Discovery Program, students
+                   must take the following courses: one inquiry course1 (or INQ attribute course); one course in writing skills; one course in
+                   quantitative reasoning; as well as one 400- to 600-level course from each of the following Discovery Program categories:
+                   Biological Science (BS)2; Physical Science (PS)2; Environment, Technology and Society (ETS); Fine and Performing Arts (FPA);
+                   Historical Perspectives (HP); Humanities (HUMA); Social Science (SS) and World Cultures (WC)3
+                   1. The Inquiry requirement shall be waived for students with 26 or more transfer credits.
+                   2. One of these two courses must have a lab component.
+                   3. Also may be satisfied by approved study abroad programs.
+
+
+
+* Course titles, names and/or sequencing are subject to change.
+
+                                                                                                                                                    November 7, 2017
+

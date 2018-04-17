@@ -1,11 +1,16 @@
 from django.shortcuts import render
+from django.template import loader
 from django.views.generic import TemplateView
+from django.http import HttpResponse
+
+def detail(request, question_id):
+    return HttpResponse("You're looking at question %s." % question_id)
 
 class HomePageView(TemplateView):
-    template_name = "index.html"
+    template_name = "universitytransfer/index.html"
 
 class AboutPageView(TemplateView):
-    template_name = "about.html"
+    template_name = "universitytransfer/about.html"
 
 # Add this view
 class DataPageView(TemplateView):

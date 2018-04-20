@@ -2,25 +2,43 @@ import boto3
 import json
 import decimal
 from boto3.dynamodb.conditions import Key, Attr
+from django.views.generic import TemplateView
+from django.http import (
+    FileResponse, Http404, HttpResponse, HttpResponseNotModified,
+)
+from django.template import Context, Engine, TemplateDoesNotExist, loader
+from django.utils._os import safe_join
+from django.utils.http import http_date, parse_http_date
+from django.utils.translation import gettext as _, gettext_lazy
 
 from django.shortcuts import render
 
 from django.http import HttpResponse
+	
+class HomePageView(TemplateView):
+    template_name = "universitytransfer/index.html"
 
+class AboutPageView(TemplateView):
+    template_name = "universitytransfer/about.html"
+
+class NHTIPageView(TemplateView):
+    template_name = "universitytransfer/nhti.html"
+    
+class NCCPageView(TemplateView):
+    template_name = "universitytransfer/ncc.html"
+
+class MCCPageView(TemplateView):
+    template_name = "universitytransfer/mcc.html"
+	
 # Helper class to convert a DynamoDB item to JSON.
-# class DecimalEncoder(json.JSONEncoder):
-#     def default(self, o):
-#         if isinstance(o, decimal.Decimal):
-#             if o % 1 > 0:
-#                 return float(o)
-#             else:
-#                 return int(o)
-#         return super(DecimalEncoder, self).default(o)
-
-
-def index(request):
-
-    return HttpResponse("Hi.")
+class DecimalEncoder(json.JSONEncoder):
+    def default(self, o): # pylint: disable=E0202
+        if isinstance(o, decimal.Decimal):
+            if o % 1 > 0:
+                return float(o)
+            else:
+                return int(o)
+        return super(DecimalEncoder, self).default(o)
 
 
 def helloDynamo(request):

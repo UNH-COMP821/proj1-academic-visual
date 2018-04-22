@@ -18,6 +18,9 @@ from django.http import HttpResponse
 class HomePageView(TemplateView):
     template_name = "universitytransfer/index.html"
 
+class DynamicGraphPageView(TemplateView):
+    template_name = "universitytransfer/dynamic_graph.html"
+
 class AboutPageView(TemplateView):
     template_name = "universitytransfer/about.html"
 

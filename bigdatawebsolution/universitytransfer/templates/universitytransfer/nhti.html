@@ -9,9 +9,30 @@
   <title>{% block title %}Welcome Home NHTI {% endblock %}</title>
 </head>
 <body>
+    {% block javascript %}
+    <script>
+        $('#departmentDp').change(function () {
+          var departmentId = $(this).val();
+    
+          $.ajax({
+            url: '/ajax/getcourse/',
+            data: {
+              'school_id': 1,
+              'department_id': departmentId,
+            },
+            dataType: 'json',
+            success: function (data) {
+                alert(data.is_taken);
+            }
+          });
+    
+        });
+      </script>
+    {% endblock %}
+
   {% block pagecontent %}
   
-  <img alt="smiley" style="" src="{% static 'universitytransfer/images/nashua.svg' %}" usemap="#G" alt="graphviz graph" />
+  <img alt="smiley" style="" src="{% static 'universitytransfer/images/concord.svg' %}" usemap="#G" alt="graphviz graph" />
   <map id="G" name="G">
       <area shape="poly" id="node1" href="https://www.nhtransfer.org/sites/nhtransfer.org/files/media/nhtransferapplication.pdf" title="Transfer" alt="" coords="425,317,422,310,415,303,402,298,387,295,370,293,353,295,337,298,325,303,317,310,314,317,317,325,325,331,337,337,353,340,370,341,387,340,402,337,415,331,422,325"/>
       <area shape="poly" id="node5" href="/" title="Apply" alt="" coords="414,413,412,406,405,399,396,394,383,391,370,389,356,391,344,394,334,399,328,406,326,413,328,421,334,427,344,433,356,436,370,437,383,436,396,433,405,427,412,421"/>
@@ -21,18 +42,38 @@
 
 <p>
   Select major:
-  <select>
-      <option value="volvo">Software Development</option>
-      <option value="saab">Networking</option>
-      <option value="mercedes">web Application</option>
+  <form>
+  <select id="departmentDp">    
+      {% for department in departmentList %}
+          <option value="{{ department.id}}">{{ department.name }}</option>
+      {% endfor %}
     </select>
+  </form>
 
+</p>
+<p>
+  <table border="1">
+    <tr>
+        <th>Course</th>
+        <th>UNH Equivalent</th>
+    </tr>
+    <tr>
+      <td>c1</td>
+      <td>c2</td>
+    </tr>
+  </table>
 </p>
 
   <p>" This page will redirect you to NHTI."
   </p>
+
+  
+  
   {% include 'partials/nav-bar.html' %} <!--Add this-->
 
   {% endblock %}
+
 </body>
+
+
 </html>

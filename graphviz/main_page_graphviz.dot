@@ -8,6 +8,8 @@ digraph G {
 
 transfer_to [label="Transfer and Apply" URL="https://www.nhtransfer.org/sites/nhtransfer.org/files/media/nhtransferapplication.pdf" color=lightgreen fillcolor=lightyellow style=filled] 
 unh [label="UNH-Manchester MS IT " URL="https://manchester.unh.edu/academics/degree-programs/information-technology" color=lightgreen fillcolor=lightyellow style=filled] 
+
+     nhit_cs [label="Computer Science" URL="https://manchester.unh.edu/sites/default/files/migrated/Pathways/nhti_cs_pathways.pdf" color=lightgreen fillcolor=lightyellow style=filled]
   
   
      transfer -> from_nhit [label=from] 
@@ -17,14 +19,14 @@ unh [label="UNH-Manchester MS IT " URL="https://manchester.unh.edu/academics/deg
      unh_programs [label="UNH Programs" ] 
 
      nhit_compare_tuition_cost [label="Compare Tuition Cost" URL="https://manchester.unh.edu/costs" color=lightgreen fillcolor=lightyellow style=filled] 
-     nhit_computer_science [label="Concord's Computer Information System" URL= "https://manchester.unh.edu/sites/default/files/media/nhti_cis_pathways_0.pdf" color=lightgreen fillcolor=lightyellow style=filled ] 
+     nhit_computer_science [label=" Computer Information System" URL= "https://manchester.unh.edu/sites/default/files/media/nhti_cis_pathways_0.pdf" color=lightgreen fillcolor=lightyellow style=filled ] 
      unh_programs-> nhit_compare_tuition_cost 
      from_nhit -> nhit_computer_science 
-
+     from_nhit -> nhit_cs
     
 
      nhit_computer_science -> unh_programs
-      
+      nhit_cs -> unh_programs
     
 
 nashua_cyber_security [label="Networking" URL= "https://manchester.unh.edu/sites/default/files/media/ncc_comp_net_cis_pathways_0.pdf " color=lightgreen fillcolor=lightblue style=filled] 
@@ -43,7 +45,7 @@ nashua_software_Development->unh_programs
 
 nashua_web_Application_Development->unh_programs
 
-nhit_computer_science [label="Concord's Computer Information System"  URL= "https://manchester.unh.edu/sites/default/files/media/nhti_cis_pathways_0.pdf" color=lightgreen fillcolor=lightyellow style=filled ] 
+nhit_computer_science [label=" Computer Information System"  URL= "https://manchester.unh.edu/sites/default/files/media/nhti_cis_pathways_0.pdf" color=lightgreen fillcolor=lightyellow style=filled ] 
 
 mcc_computer_science [label="Manchester Computer Information System" URL ="https://manchester.unh.edu/sites/default/files/media/mcc_cis_pathways.pdf"  color=lightgreen fillcolor=lightyellow style=filled] 
 

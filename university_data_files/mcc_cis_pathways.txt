@@ -1,0 +1,168 @@
+                                                                                                                                 Academic Year 2017-2018
+
+Computer Information Systems Public Pathways Program
+We have partnered with Manchester Community College to offer a Pathways Program that allows you to smoothly
+transition to UNH Manchester. This curriculum map shows you the MCC course sequence you should follow for
+seamless transfer into our B.S. in Computer Information Systems degree program.
+
+
+   Students must take these courses at MCC...                                          To fulfill these UNH degree requirements...
+
+   CIS 105 ­ Introduction to Computer Science                                          COMP 430 ­ System Fundamentals
+   ENGL 101 ­ College Composition I                                                    Discovery writing skills course
+   MATH 155 ­ College Algebra with Trigonometry                                        No transfer credit
+   FYE 100 ­ First Year Cornerstone                                                    No transfer credit
+   CIS 107 ­ Introduction to Android Apps Development 1 or                             Elective credit
+   CIS 108 ­ Introduction to Windows Apps Development 1
+   CIS 113 ­ Database Design & Management Using SQL 2                                  Elective credit
+   MATH 171 ­ Pre-Calculus                                                             Elective credit
+   ENGL 113 ­ Introduction to Public Speaking                                          Elective credit
+   CIS 118, 122, 148, or 158 ­ Programming Language elective 3                         Elective credit
+   Discovery-approved social science course                                            Discovery social science course
+   CIS 126 ­ Introduction to Python 4                                                  Elective credit
+   CIS 210 ­ Data Structures and Elementary Algorithms 4                               COMP 525 ­ Data Structures Fundamentals
+   MATH 170 ­ Discrete Mathematics                                                     Discovery quantitative reasoning
+   ENGL 206 ­ Professional Communication                                               Elective credit
+   CIS 233 - Oracle® Database Administration I 2                                       COMP 520 ­ Database Design and Development
+   CIS 124 ­ Web Programming 1                                                         COMP 405 ­ Introduction to Internet and Web Authoring
+   CIS 274 ­ XML Programming I                                                         Elective credit
+   CIS 291 ­ Capstone Senior Seminar                                                   Elective credit
+   PHYS 210 ­ University Physics I                                                     Discovery physical science course
+   CIS 220 ­ Object-Oriented Programming 3                                             COMP 425 ­ Computing Fundamentals
+   Discovery-approved biological science course                                        Discovery biological science/DLAB course
+
+
+
+   Note: See page 3 for information about UNH's Discovery Program courses.
+   1. Major credit when paired with CIS 124 for COMP 405. Students must earn a C or better in both CIS 107 or CIS 108 and CIS 124 to earn credit for COMP 405.
+   2. Major credit when paired with CIS 233 for COMP 520. Students must earn a C or better in both CIS 113 and CIS 233 to earn credit for COMP 520.
+   3. Major credit when paired with CIS 220 for COMP 425. Students must earn a C or better in both CIS 118, 122, 148 or 158 and CIS 220 to earn credit for COMP 425.
+   4. Major credit when paired with CIS 210 for COMP 525. Students must earn a C or better in both CIS 126 and CIS 210 to earn credit for COMP 525.
+
+   Course titles, names and/or sequencing are subject to change.
+
+
+
+
+                             University of New Hampshire at Manchester · 88 Commercial Street, Manchester, NH 03101
+                          Office of Admissions: 603-641-4150 · unhm.admissions@unh.edu · manchester.unh.edu/pathways
+If you are enrolled in the NH Dual Admission Program and/or plan to finish
+your associate degree at MCC, complete the following requirements at UNH
+Manchester to receive your bachelor's degree.
+     Major Course Requirements:
+
+     COMP 530 ­ Machine and Network Architecture
+     COMP 550 ­ Networking Concepts
+     COMP 560 ­ Ethics and Law in the Digital Age (also fulfills Discovery humanities course)
+     COMP 730 ­ Object-Oriented Software Development
+     COMP 715 ­ Information Security
+     COMP 685 ­ Professional Development Seminar (1 credit)
+     COMP 690 ­ Internship Experience (4 credits)
+     COMP 790 ­ Capstone Project
+     Three major elective courses
+
+     Discovery Program* Course Requirements:
+
+     Discovery environment, technology and society course
+     Discovery historical perspectives course
+     Discovery world cultures course
+     Discovery fine and performing arts course
+
+
+     University Degree Requirements:
+
+     Elective courses to fill remaining credits required for bachelor's degree (128 total)
+     University writing requirement**
+
+      * See page 3 for information about UNH's Discovery program.
+      ** Bachelor degree candidates are required to complete four writing-intensive courses, which must include: English 401 ­ First
+         Year Writing (or equivalent transfer English composition course) and three additional writing-intensive courses, one in the
+         student's major and one at the 600-level or above.
+
+
+
+
+                            An advisor at UNH Manchester will provide you with the
+                            best possible guidance for course selections each term.
+
+
+
+Please also note:
+
+n   UNH Manchester accepts a maximum of 72 credits in transfer from 2-year institutions. Only courses completed with a grade of C or better
+    will be accepted as transfer credits.
+n   Students must earn a minimum overall grade point average of 2.50 at MCC to be eligible for dual enrollment at UNH Manchester.
+
+ Course titles, names and/or sequencing are subject to change.
+
+
+
+
+June 5, 2017                                               UNH Manchester's Public Pathways Program qualifies for the
+The Manchester Community College courses* listed below fulfill
+UNH Manchester's Discovery Program course requirements:
+
+Writing Skills                                       PHYS 135M ­ College Physics I                             GEOG 110M ­ Geography
+ENGL 110M ­ College Composition I                    PHYS 136M ­ College Physics II                            POLS 110M ­ American Government
+                                                     PHYS 210M ­ University Physics I                          POLS 210M ­ Intro to Political Science
+Quantitative Reasoning                               PHSY 220M ­ University Physics II                         PSYC 110M ­ Intro to Psychology
+CIS 118M ­ Visual Basic Net Programming                                                                        PSYC 210M ­ Human Growth &
+CIS 148M ­ Java Programming                          Environment, Technology & Society                         Development
+CIS 158M ­ C# Programming                            ENVS 125M ­ Current Issues in the                         SOCI 109M ­ Contemporary Social
+MATH 170M ­ Discrete Mathematics                     Environment                                               Problems
+MATH 200M ­ Finite Math                                                                                        SOCI 110M ­ Sociology
+MATH 202M ­ Probability & Statistics                 Historical Perspectives
+                                                     HIST 120M ­ Western Civ. through 1500                     SOCI 250M ­ Multiculturalism
+MATH 204M ­ Calculus I
+                                                     HIST 130M ­ Western Civ. 1500 to Present                  Humanities
+Biological Science                                   HIST 202M ­ US History to 1870                            ENGL 200M ­ Topics in Literature
+BIOL 106M ­ Human Body                               HIST 204M ­ US History 1870 to Present                    ENGL 201M ­ Survey of Poetry
+BIOL 150M ­ Nutrition                                HIST 205M ­ History of Russia                             ENGL 204M ­ Children's Literature
+Biological Science/DLAB                              World Culture                                             ENGL 207M ­ Intro to Literary Analysis
+BIOL 101M ­ General Concepts in Biology              ANTH 101M ­ Intro to Anthropology                         ENGL 218M ­ Short Story
+BIOL 102M ­ Introduction to Botany                   HIST 210M ­ History of China                              ENGL 223M ­ British Literature I
+BIOL 107M ­ Human Body Lab                           HIST 211M ­ Modern Middle Eastern                         ENGL 224M ­ British Literature II
+BIOL 108M ­ College Biology I                        History                                                   ENGL 225M ­ Shakespeare
+BIOL 109M ­ College Biology II                                                                                 ENGL 230M ­ American Literature I
+BIOL 110M ­ Human Anatomy                            Fine and Performing Arts                                  ENGL 235M ­ American Literature II
+& Physiology I                                       ARTS 117M ­ Art History I                                 HIST 215M ­ World Religions
+BIOL 120M ­ Human Anatomy                            ARTS 123M ­ Drawing I                                     HUMA 126M ­ Intro to Film
+& Physiology II                                      ARTS 130M ­ Intro to Art                                  HUMA 200M ­ Film & American Culture
+BIOL 151M ­ Nutrition Lab                            ARTS 217M ­ Art History II                                HUMA 220M ­ Love in the Western
+BIOL 201M ­ Principles of Genetics                   ENGL 202M ­ Intro to Drama                                Tradition
+                                                     HUMA 105M ­ Intro to Music                                PHIL 110M ­ Intro to Philosophy
+Physical Science                                     HUMA 106M ­ History of American                           PHIL 240M ­ Ethics
+PHYS 105M ­ Astronomy                                Popular Music
+                                                                                                               Writing Intensive
+Physical Science/DLAB                                Social Science                                            ENGL 110M ­ College Composition I
+CHEM 115M ­ General Chemistry I                      ANTH 102M ­ Intro to Archeology                           ENGL 120M ­ College Composition II
+CHEM 116M ­ General Chemistry II                     BUS 120M ­ Intro to                                       ENGL 203M ­ Intro to Journalism
+ESCI 110M ­ Earth Science                            Communications Media                                      ENGL 213M ­ Creative Writing
+PHYS 110M ­ Physical Science I                       ECON 134M ­ Macroeconomics                                ENGL 214M ­ Creative Nonfiction
+PHYS 120M ­ Physical Science II                      ECON 135M ­ Microeconomics
+
+
+
+
+                   UNH Manchester Bachelor Degree Requirements
+
+                   To graduate from UNH, students must fulfill course requirements in the following areas: major courses, University
+                   Discovery Program courses and electives, totaling 128 credits.
+
+
+                   Discovery Program Courses
+
+                   UNH's Discovery Program builds each student's foundation in general education. To fulfill the Discovery Program, students
+                   must take the following courses: one inquiry course1 (or INQ attribute course); one course in writing skills; one course in
+                   quantitative reasoning; as well as one 400- to 600-level course from each of the following Discovery Program categories:
+                   Biological Science (BS)2; Physical Science (PS)2; Environment, Technology and Society (ETS); Fine and Performing Arts (FPA);
+                   Historical Perspectives (HP); Humanities (HUMA); Social Science (SS) and World Cultures (WC)3
+                   1. The Inquiry requirement shall be waived for students with 26 or more transfer credits.
+                   2. One of these two courses must have a lab component.
+                   3. Also may be satisfied by approved study abroad programs.
+
+
+
+
+* Course titles, names and/or sequencing are subject to change.                                                                            November 4, 2016
+

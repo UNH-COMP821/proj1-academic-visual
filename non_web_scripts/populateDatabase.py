@@ -47,6 +47,108 @@ class HandleCommands():
         DynamoDbHelpers.PrintTableData(self.schoolDepartmentTblName, self.schoolDepartmentTblPe, self.schoolDepartmentTblEan)
         DynamoDbHelpers.PrintTableData(self.schoolTransferMapTblName, self.schoolTransferMapTblPe, self.schoolTransferMapTblEan)
 
+    def loadSchoolDataFromFile(self, filePath, universityId, departmentId, lineStartIndex, lineEndIndex):
+        courseMapStr="["
+        i = 0
+        with open(filePath) as fp:
+            for line in fp:
+                #print(line)
+                i = i+1
+                if i > lineStartIndex and i < lineEndIndex:
+                    replaceChar = "\xAD"
+                    line= line.replace(replaceChar, "-")
+                    print("line#>"+str(i) + ", line1>" + line)
+                    words2 = re.split(r"\s\s",line)
+                    words2 = list(filter(None, words2)) 
+
+                    if len(words2) > 1:
+                        classNum=words2[0].strip()
+                        
+                        classNumList = re.split(" or ",classNum)
+                        classNumList = list(filter(None, classNumList))
+                        mappingCourseRaw=words2[1].strip()
+                        mappingCourseRaw = re.split(" - ",mappingCourseRaw)
+                        mappingCourse = mappingCourseRaw[0].strip()
+                        
+                        classNum=""
+
+                        if len(mappingCourse) < 2:
+                            line = fp.readline()
+                            i = i+1
+                            print("line#>"+str(i) + ", line2>" + line)
+                            words2 = re.split(r"\s\s",line)
+                            words2 = list(filter(None, words2)) 
+                            mappingCourse=words2[0].strip()
+                            classNum =  re.split(" - ",classNumList[0])[0].strip()
+                            print("classNum-mappingCourse='" + classNum+"', '"+mappingCourse+"'")
+                            courseMapStr = self.appendCourses(courseMapStr, classNum, mappingCourse)
+                        elif len(classNumList) == 1:
+                            classNumList =  re.split(" - ",classNumList[0])
+                            classNum = classNumList[0].strip()
+                            if len(classNumList) > 0:
+                                if classNumList[len(classNumList)-1].strip().lower().endswith(" or"):
+                                    line = fp.readline()
+                                    replaceChar = "\xAD"
+                                    line= line.replace(replaceChar, "-")
+                                    i = i+1
+                                    print("line#>"+str(i) + ", line3>" + line)
+                                    words2 = re.split(r"\s\s",line)
+                                    words2 = list(filter(None, words2)) 
+                                    classNumOrRaw = words2[0].strip()
+                                    classNum = classNum +" or " + re.split(" - ",classNumOrRaw)[0].strip()
+                                    if len(mappingCourseRaw) > 1:
+                                        if mappingCourseRaw[1].lower().endswith(" or"):
+                                            mappingCourseRaw2=words2[1].strip()
+                                            mappingCourseRaw2 = re.split(" - ",mappingCourseRaw2)
+                                            mappingCourse2 = mappingCourseRaw2[0].strip()
+                                            mappingCourse = mappingCourse + " or " + mappingCourse2
+
+                            print("classNum-mappingCourse='" + classNum+"', '"+mappingCourse+"'") 
+                            courseMapStr = self.appendCourses(courseMapStr, classNum, mappingCourse)
+                        elif len(classNumList) > 1:
+                            classNum=""
+                            for classNumOrRaw in classNumList:
+                                classNumOr =  re.split(" - ",classNumOrRaw)[0].strip()
+
+                                if len(classNum) > 0:
+                                    classNum = classNum + " or "
+                                if classNumOrRaw.endswith(" or"):
+                                    line = fp.readline()
+                                    replaceChar = "\xAD"
+                                    line= line.replace(replaceChar, "-")
+                                    i = i+1
+                                    print("line#>"+str(i) + ", line4>" + line)
+                                    words2 = re.split(r"\s\s",line)
+                                    words2 = list(filter(None, words2)) 
+                                    classNumOrRaw = words2[0].strip()
+                                    classNumOr =  re.split(" - ",classNumOrRaw)[0].strip()
+                                classNum = classNum + classNumOr                        
+
+                            print("classNum-mappingCourse='" + classNum+"', '"+mappingCourse+"'") 
+                            courseMapStr = self.appendCourses(courseMapStr, classNum, mappingCourse)
+                        elif classNum.endswith(" or"):
+                            line = fp.readline()
+                            i = i+1
+                            print("line#>"+str(i) + ", line5>" + line)
+                            print("classNum-mappingCourse='" + classNum+"', '"+mappingCourse+"'")
+                            courseMapStr = self.appendCourses(courseMapStr, classNum, mappingCourse)                     
+                    else:
+                        #classNum=words2[0].strip()
+                        print("NOT ENTERED")
+                elif i > (lineEndIndex -1):
+                    print("@line > " + str(lineEndIndex -1))
+                    break
+        #fp.close()
+        courseMapStr = courseMapStr +"]"
+        print("json>"+courseMapStr)
+        item={
+                'school_id':universityId,
+                'department_id':departmentId,
+                'courses_map':courseMapStr,
+            }
+        DynamoDbHelpers.InsertData(self.schoolTransferMapTblName, item)
+
+
     def loadMccCis(self, filePath, universityId, departmentId):
         courseMapStr="["
         fp = open(filePath)
@@ -128,10 +230,23 @@ class HandleCommands():
                 filePath = os.path.join(fileDir, file)
                 print(file)
                 if str(file) == "mcc_cis_pathways.txt":
-                    print("dound mcc_cis_pathways.txt")
-                    self.loadMccCis(filePath, self.mccUniversityId, self.mccDepartmentCisId)
+                    print("found mcc_cis_pathways.txt")
+                    ##self.loadMccCis(filePath, self.mccUniversityId, self.mccDepartmentCisId)
+                    self.loadSchoolDataFromFile(filePath, self.mccUniversityId, self.mccDepartmentCisId, 10, 33)
+                elif str(file) == "ncc_comp_net_cis_pathways.txt":
+                    print("found ncc_comp_net_cis_pathways.txt")
+                    self.loadSchoolDataFromFile(filePath, self.nccUniversityId, self.nccDepartmentCisId, 10, 33)
+                elif str(file) == "ncc_software_dev_cis_pathways.txt":
+                    print("found ncc_software_dev_cis_pathways.txt")
+                    self.loadSchoolDataFromFile(filePath, self.nccUniversityId, self.nccDepartmentSoftDevId, 10, 36)
+                elif str(file) == "nhti_cis_pathways.txt":
+                    print("found nhti_cis_pathways.txt")
+                    self.loadSchoolDataFromFile(filePath, self.nhtiUniversityId, self.nhtiDepartmentCisId, 15, 41)
+                elif str(file) == "nhti_cs_pathways.txt":
+                    print("found nhti_cs_pathways.txt")
+                    self.loadSchoolDataFromFile(filePath, self.nhtiUniversityId, self.nhtiDepartmentCsId, 15, 41)
                 else:                    
-                    print("not mcc_cis_pathways.txt>" + file)
+                    print("unknown file>" + file)
 
     def clearAllTables(self):
         pe ="#i"

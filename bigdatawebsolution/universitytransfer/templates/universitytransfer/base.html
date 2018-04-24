@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      University Transfer Site - {% block title %}{% endblock %}
+    </title>
+  </head>
+    <script src="{% static 'universitytransfer/js/main.js' %}"></script> <!-- This is how to include a static file -->
+    <script src="{% static 'universitytransfer/js/viz.js' %}"></script> <!-- This is how to include a static file -->
+    <script src="{% static 'universitytransfer/js/full.module' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'universitytransfer/css/main.css' %}" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      {% block pagecontent %}
+      {% endblock %}
+    </div>
+  </body>
+  <script src="{% static 'universitytransfer/js/jquery-3.3.1.min.js' %}"></script>
+  {% block javascript %}{% endblock %}
+</html>

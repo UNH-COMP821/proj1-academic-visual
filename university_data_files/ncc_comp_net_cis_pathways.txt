@@ -1,0 +1,171 @@
+                                                                                                                 Academic Year 2017-2018
+
+Computer Information Systems Public Pathways Program
+We have partnered with Nashua Community College to offer a Pathways Program that allows you to smoothly
+transition to UNH Manchester. This curriculum map shows you the Computer Networking course sequence you
+should follow for seamless transfer into our B.S. in Computer Information Systems at UNH Manchester.
+
+
+   Students must take these courses at NCC ...                                 To fulfill these UNH degree requirements...
+
+   ENGL 101 ­ College Composition                                              Discovery writing skills course
+   CSCI 101 ­ PC Assembly/Operating Systems                                    COMP 430 ­ System Fundamentals
+   CSCI 104 ­ Introduction to Telecommunications                               Elective credit
+   CSCI 116 ­ Network Basics    1
+                                                                               Elective credit
+   Discovery-approved historical perspectives                                  Discovery historical perspectives course
+   CSCI 216 ­ Routing and Switching Essentials 1                               COMP 550 ­ Networking Concepts
+   CSCI 161 ­ Introduction to Programming in Visual BASIC 2                    Elective credit
+   ENGL 230, 231, 240 or 241                                                   Discovery humanities course
+   MATH 115 or 210                                                             Discovery quantitative reasoning course
+   CSCI elective (either 175 or 202) 2                                         COMP 425 ­ Computing Fundamentals
+   CSCI 203 ­ Introduction to UNIX                                             COMP 530 ­ Machine and Network Architecture
+   CSCI 204 ­ Administering Windows Servers                                    Major concentration course
+   CSCI 217 ­ Scaling Networks                                                 Major concentration course
+   CSCI 207 ­ Database Design and Management                                   COMP 520 ­ Database Design and Development
+   Discovery-approved social science                                           Discovery social science course
+   CSCI 210 ­ Advanced Windows Servers                                         Major concentration course
+   Elective in major                                                           Major concentration course
+   PHYS 101 ­ Physical Science I                                               Discovery physical science course
+   GEOG 110 ­ World Geography                                                  Discovery world cultures course
+   CSCI 290 ­ Internship or CSCI 286 ­ Capstone Project or                     Major concentration course
+   CSCI 250 ­ CCNA Security
+
+
+   Note: See page 3 for information about UNH's Discovery Program courses.
+   1. Students must earn a C or better in both CSCI 116 and CSCI 216 to earn credit for COMP 550.
+   2. Students must earn a C or better in both CSCI 161 and CSCI 175 or 202 to earn credit for COMP 425.
+
+   Course titles, names and/or sequencing are subject to change.
+
+
+
+
+                           University of New Hampshire at Manchester · 88 Commercial Street, Manchester, NH 03101
+                        Office of Admissions: 603-641-4150 · unhm.admissions@unh.edu · manchester.unh.edu/pathways
+If you are enrolled in the NH Dual Admission Program and/or plan to finish
+your associate degree at NCC, complete the following requirements at
+UNH Manchester to receive your bachelor's degree.
+     Major Course Requirements:
+
+     COMP 405 ­ Introduction to Internet and Web Authoring (also fulfills Discovery environment, technology and society course)
+     COMP 525 ­ Data Structures Fundamentals
+     COMP 560 ­ Ethics and Law in the Digital Age
+     COMP 715 ­ Information Security
+     COMP 730 ­ Object-Oriented Software Development
+     COMP 685 ­ Professional Development Seminar (1 credit)
+     COMP 690 ­ Internship Experience (4 credits)
+     COMP 790 ­ Capstone Project
+     One Major concentration course
+     Three Major elective courses
+
+     Discovery Program* Course Requirements:
+
+     Discovery biological sciences course
+     Discovery fine and performing arts course
+
+
+     University Degree Requirements:
+
+     Elective courses to fill remaining credits required for bachelor's degree (128 total)
+     University writing requirement**
+
+      * See page 3 for information about UNH's Discovery program.
+      ** Bachelor degree candidates are required to complete four writing-intensive courses, which must include: English 401 ­ First
+         Year Writing (or equivalent transfer English composition course) and three additional writing-intensive courses, one in the
+         student's major and one at the 600-level or above.
+
+
+
+
+                            An advisor at UNH Manchester will provide you with the
+                            best possible guidance for course selections each term.
+
+
+
+Please also note:
+
+n   UNH Manchester accepts a maximum of 72 credits in transfer from 2-year institutions. Only courses completed with a grade of C or better
+    will be accepted as transfer credits.
+n   Students must earn a minimum overall grade point average of 2.50 at NCC to be eligible for dual enrollment at UNH Manchester.
+
+ Course titles, names and/or sequencing are subject to change.
+
+
+
+
+June 5, 2017                                               UNH Manchester's Public Pathways Program qualifies for the
+The Nashua Community College courses* listed below fulfill UNH
+Manchester's Discovery Program course requirements:
+Writing Skills                                       Environment, Technology & Society                         POLS 101N ­ Intro to Political Science
+ENGL 101N ­ College Composition                      ENVS 101N ­ Environmental Science                         POLS 102N ­ American Gov't and Politics
+ENGL 110N ­ Honors Expository Writing                SOCI 215N ­ Sociology of Technology                       POLS 210N ­ State and Local Government
+                                                                                                               POLS 215N ­ World Affairs
+Quantitative Reasoning                               Historical Perspectives                                   POLS 220N ­ American Politics and
+CSCI 161N ­ Intro to Programming Using               HIST 101N ­ Western Civ. Ancient to 17                    Mass Media
+Visual Basic                                         Century                                                   PSYC 101N ­ Intro to Psychology
+CSCI 175N ­ Intermediate Programming                 HIST 102N ­ Western Civ. Since French                     PSYC 130N ­ Human Relations
+Using C++                                            Revolution                                                PSYC 201N ­ Human Growth and
+MATH 106N ­ Statistics I                             HIST 110N ­ Ancient Civ. of the World                     Development
+MATH 107N ­ Honors Statistics I                      HIST 140N ­ US History Colonial to                        SOCI 101N ­ Intro to Sociology
+MATH 115N ­ Finite Mathematics                       Reconstruction                                            SOCI 201N ­ Contemporary Social
+MATH 170N ­ Discrete Mathematics                     HIST 141N ­ US History since Reconstruction               Problems
+MATH 206N ­ Statistics II                            HIST 210N ­ The Making of England:                        SOCI 228N ­ Social Inequalities
+MATH 210N ­ Calculus I                               1215-1707
+MATH 214N ­ Honors Calculus I                        HIST 215N ­ New Hampshire History                         Humanities
+                                                     HIST 232N ­ History of Modern Asia                        ENGL 105N ­ Intro to Literature
+Biological Science/DLAB                              HIST 241N ­ American Constitutional History               ENGL 215N ­ Literature by American Women
+BIOL 101N ­ Germs 101                                HIST 246N ­ Modern America                                ENGL 220N ­ Honors Contemporary
+BIOL 105N ­ Biology in Focus I                       HIST 260N ­ History of Multiculturalism                   Dramatic Literature
+BIOL 106N ­ Biology in Focus II                      HIST 265N ­ Latin Amer. History from                      ENGL 230N ­ British Literature I
+BIOL 107N ­ Principles of Biology I                  Independence to the Present                               ENGL 231N ­ British Literature II
+BIOL 108N ­ Principles of Biology II                                                                           ENGL 240N ­ American Literature I
+BIOL 111N ­ Basic Human Anatomy & Phys.              World Culture                                             ENGL 241N ­ American Literature II
+BIOL 130N ­ Anatomy and Physiology I                 ANTH 110N ­ Cultural Anthropology                         ENGL 255N ­ Honors Humor in Literature
+BIOL 131N ­ Anatomy and Physiology II                ANTH 263N ­ Intro to Chinese Culture &                    and Other Media
+BIOL 201N ­ Adv. Anatomy and Physiology I            Society                                                   HIST 262N ­ Movies & Social History of USA
+BIOL 202N ­ Adv. Anatomy and Physiology II           GEOG 110N ­ World Regional Geography                      HUMA 101N ­ Intro to the Humanities
+BIOL 210N ­ Medical Microbiology                     SPAN 205N ­ Spanish III                                   HUMA 107N ­ World Religions
+                                                     SPAN 206N ­ Spanish IV                                    HUMA 140N ­ American Cinema
+Physical Science/DLAB
+ENVS 105N ­ Earth Science                            Fine and Performing Arts                                  HUMA 145N ­ American Popular Culture
+CHEM 110N ­ Intro to Chemistry                       ARTS 101N ­ Intro to Drawing                              HUMA 220N ­ Classic Myths in Western
+CHEM 130N ­ General Chemistry I                      HUMA 102N ­ Art Appreciation                              Civilization
+CHEM 131N ­ General Chemistry II                     HUMA 103N ­ Music Appreciation                            PHIL 130N ­ Honors Ancient Greek
+CHEM 135N ­ Honors Environment in                    HUMA 104N ­ Jazz and Its Roots                            Philosophy
+Chemical Perspective                                 HUMA 120N ­ Intro to Theatre                              PHIL 109N ­ Intro to Philosophy
+PHYS 101N ­ Physical Science I                                                                                 Writing Intensive
+PHYS 102N ­ Physical Science II                      Social Science
+                                                     ANTH 108N ­ Intro to Archeology                           ENGL 101N ­ College Composition
+PHYS 115N ­ Astronomy                                                                                          ENGL 102N ­ Writing About Literature
+PHYS 116N ­ Meteorology                              COMM 101N ­ Intro to Media Studies
+                                                     COMM 102N ­ Principles of Communication                   ENGL 105N ­ Intro to Literature
+PHYS 130N ­ Physics I                                                                                          ENGL 235N ­ Poetry Workshop
+PHYS 131N ­ Physics II                               ECON 201N ­ Microeconomics
+                                                     ECON 202N ­ Macroeconomics                                ENGL 250N ­ Honors Advance Creative
+PHYS 230N ­ Calculus-Based Physics I                                                                           Writing
+PHYS 231N ­ Calculus-Based Physics II                GEOG 130N ­ Human Geography
+
+
+
+                   UNH Manchester Bachelor Degree Requirements
+
+                   To graduate from UNH, students must fulfill course requirements in the following areas: major courses, University
+                   Discovery Program courses and electives, totaling 128 credits.
+
+
+                   Discovery Program Courses
+
+                   UNH's Discovery Program builds each student's foundation in general education. To fulfill the Discovery Program, students
+                   must take the following courses: one inquiry course1 (or INQ attribute course); one course in writing skills; one course in
+                   quantitative reasoning; as well as one 400- to 600-level course from each of the following Discovery Program categories:
+                   Biological Science (BS)2; Physical Science (PS)2; Environment, Technology and Society (ETS); Fine and Performing Arts (FPA);
+                   Historical Perspectives (HP); Humanities (HUMA); Social Science (SS) and World Cultures (WC)3
+                   1. The Inquiry requirement shall be waived for students with 26 or more transfer credits.
+                   2. One of these two courses must have a lab component.
+                   3. Also may be satisfied by approved study abroad programs.
+
+
+
+* Course titles, names and/or sequencing are subject to change.                                                                                   October 28, 2016
+

@@ -13,20 +13,45 @@
     <script>
         $('#departmentDp').change(function () {
           var departmentId = $(this).val();
-    
+          
+          var school_id = "{{ schoolId }}";
           $.ajax({
             url: '/ajax/getcourse/',
             data: {
-              'school_id': 1,
+              'school_id': school_id,
               'department_id': departmentId,
             },
             dataType: 'json',
             success: function (data) {
-                alert(data.is_taken);
+                var courses = JSON.parse(data.course_map)
+                //alert(data.course_map)
+                courses = JSON.parse(courses)
+                //alert(courses)
+                loadTable("data-table",courses);
             }
           });
     
         });
+
+        function loadTable(tableId, data) {
+          //$('#' + tableId).empty(); //not really necessary
+          //alert("inside loadTable");
+          //alert(typeof data)
+          //alert(data)
+          var rows = '';
+          
+          rows+= '<tr><th>Course</th><th>UNH Equivalent</th></tr>';
+
+          $.each(data, function(index, item) {
+              //alert(item['course'])
+              var row = '<tr>';
+              row += '<td>' + item['course'] + '</td>';
+              row += '<td>' + item['unh_map'] + '</td>';
+              //alert(item['course']+ ":"+ item['unh_map']);
+              rows += row + '<tr>';
+          });
+          $('#' + tableId).html(rows);
+      }
       </script>
     {% endblock %}
 
@@ -43,6 +68,7 @@
 <p>
   Select major:
   <form>
+    
   <select id="departmentDp">    
       {% for department in departmentList %}
           <option value="{{ department.id}}">{{ department.name }}</option>
@@ -52,15 +78,8 @@
 
 </p>
 <p>
-  <table border="1">
-    <tr>
-        <th>Course</th>
-        <th>UNH Equivalent</th>
-    </tr>
-    <tr>
-      <td>c1</td>
-      <td>c2</td>
-    </tr>
+  <table id="data-table" border="1">
+    
   </table>
 </p>
 

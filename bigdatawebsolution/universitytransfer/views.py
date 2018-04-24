@@ -38,15 +38,21 @@ class NHTIPageView(TemplateView):
         getDepartmentList(departmentList)
         context = {
             'departmentList': departmentList,
+            'schoolId' : DynamoDbHelpers.nhtiUniversityId
         }
 
         return render(request, "universitytransfer/nhti.html", context)
 
 def getCourses(request):
-    schoolId = request.GET.get('school_id', None)
-    departmentId = request.GET.get('department_id', None)
+    schoolId = int(request.GET.get('school_id', 0))
+    departmentId = int(request.GET.get('department_id', 0))
+
+    dbResp = DynamoDbHelpers.FindCoursesForSchool(schoolId, departmentId)
+
+    print(dbResp)
+
     data = {
-        'is_taken': str(schoolId) + ";" + str(departmentId)
+        'course_map': json.dumps(dbResp)
     }
     return JsonResponse(data)
 

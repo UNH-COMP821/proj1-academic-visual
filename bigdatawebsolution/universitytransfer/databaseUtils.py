@@ -231,3 +231,25 @@ class DynamoDbHelpers:
 
         print("End FindDepartmentForSchoolDB")
         return response['Items']
+
+    @staticmethod
+    def FindCoursesForSchool(schoolIdToFind, department):
+        tableName = DynamoDbHelpers.schoolTransferMapTblName
+        pe = DynamoDbHelpers.schoolTransferMapTblPe
+        ean =  DynamoDbHelpers.schoolTransferMapTblEan
+
+        print("Start FindCoursesForSchool")
+        dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000", aws_access_key_id=DynamoDbHelpers.ACCESS_ID, aws_secret_access_key=DynamoDbHelpers.SECRET_KEY)
+
+        table = dynamodb.Table(tableName)
+        print("query table:" + tableName)
+
+        response = table.query(
+            ProjectionExpression=pe,
+            ExpressionAttributeNames=ean, # Expression Attribute Names for Projection Expression only.
+            KeyConditionExpression=Key('school_id').eq(schoolIdToFind) & Key('department_id').eq(department)
+        )
+
+        print("End FindCoursesForSchool")
+        return response['Items'][0]['courses_map']
+

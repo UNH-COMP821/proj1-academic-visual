@@ -42,10 +42,11 @@ class HandleCommands():
     schoolTransferMapTblEan = { "#i": "school_id"}
 
     def PrintAllTableValuesCalled(self):
-        LogUtil.Write("PrintAllTableValuesCalled Called")        
-        DynamoDbHelpers.PrintTableData(self.schoolTblName, self.schoolTblPe, self.schoolTblEan)
-        DynamoDbHelpers.PrintTableData(self.schoolDepartmentTblName, self.schoolDepartmentTblPe, self.schoolDepartmentTblEan)
-        DynamoDbHelpers.PrintTableData(self.schoolTransferMapTblName, self.schoolTransferMapTblPe, self.schoolTransferMapTblEan)
+        LogUtil.Write("PrintAllTableValuesCalled Called")  
+        DynamoDbHelpers.FindCoursesForSchool(str(DynamoDbHelpers.nccUniversityId), str(DynamoDbHelpers.nccDepartmentCisId))      
+        #DynamoDbHelpers.PrintTableData(self.schoolTblName, self.schoolTblPe, self.schoolTblEan)
+        #DynamoDbHelpers.PrintTableData(self.schoolDepartmentTblName, self.schoolDepartmentTblPe, self.schoolDepartmentTblEan)
+        #DynamoDbHelpers.PrintTableData(self.schoolTransferMapTblName, self.schoolTransferMapTblPe, self.schoolTransferMapTblEan)
 
     def loadSchoolDataFromFile(self, filePath, universityId, departmentId, lineStartIndex, lineEndIndex):
         courseMapStr="["

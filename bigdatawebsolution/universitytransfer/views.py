@@ -72,12 +72,39 @@ def getDepartmentList(departmentList):
     return departmentList
 
 class NCCPageView(TemplateView):
-    template_name = "universitytransfer/ncc.html"
+
+    def get(self, request, *args, **kwargs):
+        # we will pass this context object into the
+        # template so that we can access the data
+        # list in the template
+        departmentList = []
+        
+        departmentList.append({'id':"", 'name':"Please Select One", 'selected':'selected'})
+        getDepartmentList(departmentList)
+        context = {
+            'departmentList': departmentList,
+            'schoolId' : DynamoDbHelpers.nccUniversityId
+        }
+
+        return render(request, "universitytransfer/ncc.html", context)
+
 
 class MCCPageView(TemplateView):
-    template_name = "universitytransfer/mcc.html"
 	
+    def get(self, request, *args, **kwargs):
+        # we will pass this context object into the
+        # template so that we can access the data
+        # list in the template
+        departmentList = []
+        
+        departmentList.append({'id':"", 'name':"Please Select One", 'selected':'selected'})
+        getDepartmentList(departmentList)
+        context = {
+            'departmentList': departmentList,
+            'schoolId' : DynamoDbHelpers.mccUniversityId
+        }
 
+        return render(request, "universitytransfer/mcc.html", context)
 
 
 def helloDynamo(request):

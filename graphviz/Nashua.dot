@@ -6,7 +6,7 @@ digraph G {
 
     list_of_unh_programs [label="UNH IT Program" URL= "https://manchester.unh.edu/academics/degree-programs/information-technology" color=lightgreen fillcolor=lightyellow style=filled]
     nashua [label="Nashua Community College" URL="/transfer_college?college=nashua" color=lightgreen fillcolor=lightyellow    style=filled]
-apply [label=Apply URL="/index.html" color=lightgreen fillcolor=lightyellow style=filled]
+
 	nashua_software_development [label="Nashua Software Develoment" URL="https://manchester.unh.edu/sites/default/files/media/ncc_software_dev_cis_pathways_0.pdf" color=lightgreen fillcolor=lightyellow style=filled]
 	nashua_networking [label="Nashua Networking" URL="https://manchester.unh.edu/sites/default/files/media/ncc_comp_net_cis_pathways_0.pdf"  color=lightgreen fillcolor=lightyellow style=filled ]
 	nashua_web [label="Nashua Web Development" URL= "https://manchester.unh.edu/sites/default/files/media/ncc_web_app_cis_pathways_0.pdf" color=lightgreen fillcolor=lightyellow style=filled ]

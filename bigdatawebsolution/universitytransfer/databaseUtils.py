@@ -34,10 +34,12 @@ class DynamoDbHelpers:
 
     nccUniversityId =2
     nccUniversityName="Nashua Community College"
-    nccDepartmentCisId =1
-    nccDepartmentCisName ="Computer Information System"
+    nccDepartmentCnId =1
+    nccDepartmentCnName ="Computer Networking"
     nccDepartmentSoftDevId =2
     nccDepartmentSoftDevName ="Software Developer"
+    nccDepartmentWebAppDevId =3
+    nccDepartmentWebAppDevName ="Website Application Development"
 
     mccUniversityId =3
     mccUniversityName="Manchester Community College"

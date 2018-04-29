@@ -24,7 +24,6 @@ class DynamoDbHelpers:
     
     ACCESS_ID="akey"
     SECRET_KEY="skey"
-
     
     nhtiUniversityId =1
     nhtiUniversityName="Concord Community College"
@@ -35,10 +34,12 @@ class DynamoDbHelpers:
 
     nccUniversityId =2
     nccUniversityName="Nashua Community College"
-    nccDepartmentCisId =1
-    nccDepartmentCisName ="Computer Information System"
+    nccDepartmentCnId =1
+    nccDepartmentCnName ="Computer Networking"
     nccDepartmentSoftDevId =2
     nccDepartmentSoftDevName ="Software Developer"
+    nccDepartmentWebAppDevId =3
+    nccDepartmentWebAppDevName ="Website Application Development"
 
     mccUniversityId =3
     mccUniversityName="Manchester Community College"
@@ -210,7 +211,29 @@ class DynamoDbHelpers:
 
 
         print("End printTableData")
-    
+
+    @staticmethod
+    def FindDepartmentForSchoolDB(schoolIdToFind):
+        tableName = DynamoDbHelpers.schoolDepartmentTblName
+        pe = DynamoDbHelpers.schoolDepartmentTblPe
+        ean =  DynamoDbHelpers.schoolDepartmentTblEan
+
+        print("Start FindDepartmentForSchoolDB")
+        dynamodb = boto3.resource('dynamodb', region_name='us-west-2', endpoint_url="http://localhost:8000", aws_access_key_id=DynamoDbHelpers.ACCESS_ID, aws_secret_access_key=DynamoDbHelpers.SECRET_KEY)
+
+        table = dynamodb.Table(tableName)
+        print("query table:" + tableName)
+
+
+        response = table.query(
+            ProjectionExpression=pe,
+            ExpressionAttributeNames=ean, # Expression Attribute Names for Projection Expression only.
+            KeyConditionExpression=Key('school_id').eq(schoolIdToFind)
+        )
+
+        print("End FindDepartmentForSchoolDB")
+        return response['Items']
+
     @staticmethod
     def FindCoursesForSchool(schoolIdToFind, department):
         tableName = DynamoDbHelpers.schoolTransferMapTblName
@@ -222,8 +245,6 @@ class DynamoDbHelpers:
 
         table = dynamodb.Table(tableName)
         print("query table:" + tableName)
-        print("looking for school" + str(schoolIdToFind))
-        print("looking for department" + str(department))
 
         response = table.query(
             ProjectionExpression=pe,
@@ -232,4 +253,5 @@ class DynamoDbHelpers:
         )
 
         print("End FindCoursesForSchool")
-        return response['Items']
+        return response['Items'][0]['courses_map']
+

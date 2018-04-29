@@ -35,7 +35,7 @@ class NHTIPageView(TemplateView):
         departmentList = []
         
         departmentList.append({'id':"", 'name':"Please Select One", 'selected':'selected'})
-        getDepartmentList(departmentList)
+        getDepartmentList(departmentList, DynamoDbHelpers.nhtiUniversityId)
         context = {
             'departmentList': departmentList,
             'schoolId' : DynamoDbHelpers.nhtiUniversityId
@@ -56,9 +56,8 @@ def getCourses(request):
     }
     return JsonResponse(data)
 
-def getDepartmentList(departmentList):
-
-    response = DynamoDbHelpers.FindDepartmentForSchoolDB(DynamoDbHelpers.nhtiUniversityId)
+def getDepartmentList(departmentList, universityId):
+    response = DynamoDbHelpers.FindDepartmentForSchoolDB(universityId)
 
     # print("reasponse type=",type(response))
     # departmentList = []
@@ -80,7 +79,7 @@ class NCCPageView(TemplateView):
         departmentList = []
         
         departmentList.append({'id':"", 'name':"Please Select One", 'selected':'selected'})
-        getDepartmentList(departmentList)
+        getDepartmentList(departmentList, DynamoDbHelpers.nccUniversityId)
         context = {
             'departmentList': departmentList,
             'schoolId' : DynamoDbHelpers.nccUniversityId
@@ -98,7 +97,7 @@ class MCCPageView(TemplateView):
         departmentList = []
         
         departmentList.append({'id':"", 'name':"Please Select One", 'selected':'selected'})
-        getDepartmentList(departmentList)
+        getDepartmentList(departmentList,DynamoDbHelpers.mccUniversityId)
         context = {
             'departmentList': departmentList,
             'schoolId' : DynamoDbHelpers.mccUniversityId

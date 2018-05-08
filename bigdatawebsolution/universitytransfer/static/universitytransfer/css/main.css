@@ -1,9 +1,11 @@
 .container {
-    background: #2E9EA9;
+    background: #007398;
     margin: 10 10 10 10;
     border: 3px solid black;
+    color:#FFFFFF;
   }
     .nav a {
-    background: #DEDEDE;
+    background: #007398;
+    color:rgb(247, 221, 221);
 
 }

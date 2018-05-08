@@ -520,6 +520,26 @@ class Application(Frame):
         self.loadMcc["command"] = self.LoadMccFileBtn
         self.loadMcc.pack({"side": "top"})
 
+        #-----------------------------
+        
+        self.createGraphVizTables = Button(self)
+        self.createGraphVizTables["text"] = "Create Graph Viz Tables"
+        self.createGraphVizTables["compound"] = "center"
+        #self.createGraphVizTables["command"] = self.LoadMccFileBtn
+        self.createGraphVizTables.pack({"side": "top"})
+
+        self.deleteGraphVizTables = Button(self)
+        self.deleteGraphVizTables["text"] = "Delete Graph Viz Tables"
+        self.deleteGraphVizTables["compound"] = "center"
+        #self.deleteGraphVizTables["command"] = self.LoadMccFileBtn
+        self.deleteGraphVizTables.pack({"side": "top"})
+
+        self.loadGraphVizTables = Button(self)
+        self.loadGraphVizTables["text"] = "Load Graph Viz Tables"
+        self.loadGraphVizTables["compound"] = "center"
+        #self.loadGraphVizTables["command"] = self.LoadMccFileBtn
+        self.loadGraphVizTables.pack({"side": "top"})
+
     def __init__(self, master=None):
         Frame.__init__(self, master)
         self.pack()
